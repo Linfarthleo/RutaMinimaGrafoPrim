@@ -1,0 +1,10 @@
+.root {
+    -fx-background-image: url('images/rutas_minimas_portada01.jpg');
+    -fx-background-size:cover;
+}
+
+.root2 {
+    -fx-background-image: url('images/rutas_minimas_portada02.jpg');
+    -fx-background-size:cover;
+}
+
