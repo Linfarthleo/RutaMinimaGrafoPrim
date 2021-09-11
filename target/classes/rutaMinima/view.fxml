@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="675.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rutaMinima.Controller">
    <children>
       <AnchorPane prefHeight="57.0" prefWidth="525.0" style="-fx-background-color: #bdecb6;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -22,40 +24,61 @@
                         <Insets top="5.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Separator prefHeight="72.0" prefWidth="150.0" visible="false" />
-                  <ImageView fitHeight="72.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons8_treasure.png" />
-                     </image>
-                  </ImageView>
-                  <Separator prefHeight="72.0" prefWidth="98.0" visible="false" />
-                  <ImageView fitHeight="51.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons8_map_editing.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets top="5.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Separator prefHeight="9.0" prefWidth="98.0" visible="false" />
-                  <ImageView fitHeight="57.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons8_around_the_globe.png" />
-                     </image>
-                  </ImageView>
-                  <Separator prefHeight="102.0" prefWidth="150.0" visible="false" />
-                  <ImageView fitHeight="57.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icon_exit.png" />
-                     </image>
-                  </ImageView>
+                  <Separator prefHeight="3.0" prefWidth="57.0" visible="false" />
+                  <JFXButton prefHeight="71.0" prefWidth="153.0" text="Seleccionar      Rutas" textFill="WHITE" wrapText="true">
+                     <graphic>
+                        <ImageView fitHeight="53.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/icons8_treasure.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Verdana Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton prefHeight="71.0" prefWidth="144.0" text="Ingresar   Rutas" textFill="WHITE" wrapText="true">
+                     <graphic>
+                        <ImageView fitHeight="51.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/icons8_map_editing.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Verdana Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton prefHeight="71.0" prefWidth="156.0" text="  Rutas Optimas" textFill="WHITE" wrapText="true">
+                     <graphic>
+                        <ImageView fitHeight="57.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/icons8_around_the_globe.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Verdana Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <Separator prefHeight="3.0" prefWidth="57.0" visible="false" />
+                  <JFXButton onMouseClicked="#onExitButtonClicked" prefHeight="71.0" prefWidth="54.0" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="57.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/icon_exit.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Separator prefHeight="6.0" prefWidth="8.0" visible="false" />
                </children>
             </HBox>
          </children></AnchorPane>
-      <AnchorPane layoutX="17.0" layoutY="115.0" opacity="0.75" prefHeight="467.0" prefWidth="675.0" styleClass="root3" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane layoutX="17.0" layoutY="115.0" prefHeight="467.0" prefWidth="675.0" styleClass="root3" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <AnchorPane prefHeight="400.0" prefWidth="601.0" styleClass="root" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
-            <AnchorPane prefHeight="400.0" prefWidth="601.0" styleClass="root2" stylesheets="@style.css" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
+            <AnchorPane opacity="0.6" prefHeight="400.0" prefWidth="601.0" styleClass="root" stylesheets="@style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            <AnchorPane opacity="0.6" prefHeight="400.0" prefWidth="601.0" styleClass="root2" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
    </children>
