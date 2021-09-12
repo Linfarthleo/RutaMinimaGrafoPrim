@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -25,7 +27,7 @@
                      </HBox.margin>
                   </ImageView>
                   <Separator prefHeight="3.0" prefWidth="57.0" visible="false" />
-                  <JFXButton prefHeight="71.0" prefWidth="153.0" text="Seleccionar      Rutas" textFill="WHITE" wrapText="true">
+                  <JFXButton prefHeight="71.0" prefWidth="153.0" text="Ingresar      Ciudades" textFill="WHITE" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="53.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -77,7 +79,24 @@
          </children></AnchorPane>
       <AnchorPane layoutX="17.0" layoutY="115.0" prefHeight="467.0" prefWidth="675.0" styleClass="root3" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <AnchorPane opacity="0.6" prefHeight="400.0" prefWidth="601.0" styleClass="root" stylesheets="@style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            <AnchorPane opacity="0.6" prefHeight="400.0" prefWidth="601.0" styleClass="root" stylesheets="@style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <AnchorPane layoutX="43.0" layoutY="31.0" prefHeight="370.0" prefWidth="290.0" style="-fx-background-color: #1a2d4c;">
+                     <children>
+                        <Label layoutX="44.0" layoutY="48.0" text="Ingresar Ciudades" textFill="WHITE">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="44.0" layoutY="100.0" text="País:" textFill="WHITE">
+                           <font>
+                              <Font name="Verdana Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXComboBox AnchorPane.rightAnchor="234.39999999999998" />
+                     </children>
+                  </AnchorPane>
+               </children></AnchorPane>
             <AnchorPane opacity="0.6" prefHeight="400.0" prefWidth="601.0" styleClass="root2" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
