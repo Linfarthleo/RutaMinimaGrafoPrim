@@ -8,3 +8,8 @@
     -fx-background-size:cover;
 }
 
+.root3 {
+    -fx-background-image: url('images/fondo_degradado.jpeg');
+    -fx-background-size:cover;
+}
+
