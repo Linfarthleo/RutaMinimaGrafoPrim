@@ -27,7 +27,7 @@
                      </HBox.margin>
                   </ImageView>
                   <Separator prefHeight="3.0" prefWidth="57.0" visible="false" />
-                  <JFXButton prefHeight="71.0" prefWidth="153.0" text="Ingresar      Ciudades" textFill="WHITE" wrapText="true">
+                  <JFXButton prefHeight="71.0" prefWidth="153.0" text="Seleccionar Ciudades" textFill="WHITE" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="53.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -93,13 +93,18 @@
                               <Font name="Verdana Bold" size="13.0" />
                            </font>
                         </Label>
-                        <JFXComboBox layoutX="116.0" layoutY="95.0" prefHeight="26.0" prefWidth="109.0" promptText="país" AnchorPane.rightAnchor="64.79999999999998" />
-                        <Label layoutX="44.0" layoutY="149.0" text="Estado:" textFill="WHITE">
+                        <JFXComboBox fx:id="cbPais" blendMode="EXCLUSION" layoutX="116.0" layoutY="95.0" onAction="#onActionCBPais" prefHeight="26.0" prefWidth="109.0" promptText="País" unFocusColor="WHITE" AnchorPane.rightAnchor="64.79999999999998" />
+                        <Label layoutX="44.0" layoutY="149.0" text="Ciudad:" textFill="WHITE">
                            <font>
                               <Font name="Verdana Bold" size="13.0" />
                            </font>
                         </Label>
-                        <JFXComboBox layoutX="116.0" layoutY="144.0" prefHeight="26.0" prefWidth="109.0" promptText="estado" />
+                        <JFXComboBox fx:id="cbCiudad" blendMode="EXCLUSION" disable="true" layoutX="116.0" layoutY="144.0" onAction="#onActionCBCiudad" prefHeight="26.0" prefWidth="109.0" promptText="Ciudad" unFocusColor="WHITE" />
+                        <JFXButton fx:id="btnInsertar" disable="true" layoutX="109.0" layoutY="235.0" onMouseClicked="#onBtnInsertarClicked" text="Insertar" textFill="#f4f4f4">
+                           <font>
+                              <Font name="Verdana Bold" size="12.0" />
+                           </font>
+                        </JFXButton>
                      </children>
                   </AnchorPane>
                </children></AnchorPane>

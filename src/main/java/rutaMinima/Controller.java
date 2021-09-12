@@ -1,13 +1,25 @@
 package rutaMinima;
 
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 
-public class Controller {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class Controller implements Initializable {
+    private Paises listaPaises;
+
+    @FXML private ComboBox<String> cbPais;
+    @FXML private ComboBox<String> cbCiudad;
+    @FXML private Button btnInsertar;
+    @FXML private TableView<String> tbCiudades;
+
+
     public void onExitButtonClicked(MouseEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Salir");
@@ -17,5 +29,34 @@ public class Controller {
             Platform.exit();
             System.exit(0);
         }
+    }
+
+    public void onActionCBPais(ActionEvent event){
+        cbCiudad.setDisable(false);
+        cbCiudad.setDisable(false);
+        for (int i=0;i< listaPaises.getSize();i++){
+            if(cbPais.getValue().equals(listaPaises.getCountry(i))){
+                cbCiudad.setItems(listaPaises.getStates(i));
+            }
+        }
+    }
+
+    public void onActionCBCiudad(ActionEvent event){
+        btnInsertar.setDisable(false);
+
+    }
+
+    public void onBtnInsertarClicked(MouseEvent event){
+        String str = cbCiudad.getValue();
+
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+            listaPaises=new Paises();
+            cbPais.setItems(listaPaises.getCountries());
+
+
     }
 }

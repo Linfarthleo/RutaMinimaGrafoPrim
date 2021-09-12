@@ -172,6 +172,7 @@ public class Paises {
         statesItems.add(AeropuertosChilenos);
         statesItems.add(AeropuertosColombianos);
         statesItems.add(AeropuertosEcuatorianos);
+
     }
 
     public ObservableList<String> getCountries() {
