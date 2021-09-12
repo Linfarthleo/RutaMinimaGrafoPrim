@@ -32,7 +32,7 @@ public class Paises {
                     "Uruguay",
                     "Venezuela"
             );
-    ObservableList<String> EstadosArgentinos =
+    ObservableList<String> AeropuertosArgentinos =
             FXCollections.observableArrayList(
                     "Buenos Aires",
                     "Catamarca",
@@ -58,42 +58,29 @@ public class Paises {
                     "Tierra del Fuego",
                     "Tucumán"
             );
-    ObservableList<String> colombiaStates =
+    ObservableList<String> AeropuertosColombianos =
             FXCollections.observableArrayList(
-                    "Amazonas",
-                    "Antioquia",
-                    "Arauca",
-                    "Atlántico",
+
                     "Bogotá",
-                    "Bolívar",
-                    "BoyacáCaldas",
-                    "Caquetá",
-                    "Casanare",
-                    "Cauca",
-                    "Cesar",
-                    "Chocó",
-                    "Córdoba",
-                    "Cundinamarca",
-                    "Guainía",
-                    "Guaviare",
-                    "Huila",
-                    "La Guajira",
-                    "Magdalena",
-                    "Meta",
-                    "Nariño",
-                    "Norte de Santander",
-                    "Putumayo",
-                    "Quindío",
-                    "Risaralda",
-                    "San Andrés y Providencia",
-                    "Santander",
-                    "Sucre",
-                    "Tolima",
-                    "Valle del Cauca",
-                    "Vaupés",
-                    "Vichada"
+                    "Medellin",
+                    "Cali",
+                    "Pereira",
+                    "Barranquilla",
+                    "Cartagena",
+                    "Cucuta",
+                    "Armenia",
+                    "Yopal",
+                    "Bucaramanga",
+                    "Santa Marta",
+                    "San Andrés",
+                    "Monteria",
+                    "Valledupar",
+                    "Medellin Herrera",
+                    "Pasto",
+                    "Neiva"
+
             );
-    ObservableList<String> boliviaStates =
+    ObservableList<String> AeropuertosBolivianos =
             FXCollections.observableArrayList(
                     "Beni",
                     "Chuquisaca",
@@ -105,7 +92,7 @@ public class Paises {
                     "Santa Cruz",
                     "Tarija"
             );
-    ObservableList<String> brasilStates =
+    ObservableList<String> AeropuertosBrasilenios =
             FXCollections.observableArrayList(
                     "Acre",
                     "Alagoas",
@@ -134,70 +121,57 @@ public class Paises {
                     "Sergipe",
                     "Tocantins"
             );
-    ObservableList<String> chilesStates =
+    ObservableList<String> AeropuertosChilenos =
             FXCollections.observableArrayList(
-                    "Ant\u00E1rtica Chilena",
                     "Antofagasta",
-                    "Arauco",
                     "Arica",
-                    "Ays\u00E9n",
-                    "Biob\u00EDo",
-                    "Cachapoal",
-                    "Capit\u00E1n Prat",
-                    "Cardenal Caro",
-                    "Cauquenes",
-                    "Caut\u00EDn",
-                    "Chacabuco",
-                    "Cha\u00F1aral",
-                    "Chilo\u00E9",
-                    "Choapa",
-                    "Colchagua",
-                    "Concepci\u00F3n",
-                    "Copiap\u00F3",
-                    "Cordillera",
-                    "Coyhaique",
-                    "Curic\u00F3",
-                    "El Loa",
-                    "Elqui",
-                    "General Carrera",
-                    "Huasco",
+                    "Balmaceda",
+                    "Calama",
+                    "Caldera",
+                    "Dalcahue",
+                    "Freire",
                     "Iquique",
                     "Isla de Pascua",
-                    "Limar\u00ED",
-                    "Linares",
-                    "Llanquihue",
-                    "Los Andes",
-                    "Magallanes",
-                    "Maipo",
-                    "Malleco",
-                    "Marga Marga",
-                    "Melipilla",
-                    "\u00D1uble",
+                    "La Serena",
+                    "Mariquina",
+                    "Natales",
                     "Osorno",
-                    "Palena",
-                    "Parinacota",
-                    "Petorca",
-                    "Quillota",
-                    "Ranco",
-                    "San Antonio",
-                    "San Felipe de Aconcagua",
+                    "Puerto Montt",
+                    "Punta Arenas",
                     "Santiago",
-                    "Talagante",
-                    "Talca",
-                    "Tamarugal",
-                    "Tierra del Fuego",
-                    "Tocopilla",
-                    "\u00DAltima Esperanza",
-                    "Valdivia",
-                    "Valpara\u00EDso"
+                    "Talcahuano"
+
             );
+    ObservableList<String> AeropuertosEcuatorianos =
+            FXCollections.observableArrayList(
+                    "Andoas (Pastaza)",
+                        "Catamayo",
+                        "Cuenca",
+                        "Cumbaratza(Zamora)",
+                        "Esmeraldas",
+                        "Guayaquill",
+                        "Isla Baltra",
+                        "Pastaza",
+                        "Latacunga",
+                        "Lorocachi (Pastaza)",
+                        "Macas",
+                        "Manta",
+                        "NuevaLoja",
+                        "Puerto Baquerizo Moreno",
+                        "Puerto Francisco de Orellana",
+                        "Salinas",
+                        "Santa Rosa",
+                        "Quito",
+                        "Morona Santiago");
+
 
     public Paises() {
-        statesItems.add(EstadosArgentinos);
-        statesItems.add(boliviaStates);
-        statesItems.add(brasilStates);
-        statesItems.add(chilesStates);
-        statesItems.add(colombiaStates);
+        statesItems.add(AeropuertosArgentinos);
+        statesItems.add(AeropuertosBolivianos);
+        statesItems.add(AeropuertosBrasilenios);
+        statesItems.add(AeropuertosChilenos);
+        statesItems.add(AeropuertosColombianos);
+        statesItems.add(AeropuertosEcuatorianos);
     }
 
     public ObservableList<String> getCountries() {
