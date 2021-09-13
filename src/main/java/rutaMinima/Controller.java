@@ -16,6 +16,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
     private Paises listaPaises;
     private ArrayList<String> selecionados;
+    private ArrayList<String> selecionadosP;
     @FXML private ComboBox<String> cbPais;
     @FXML private ComboBox<String> cbCiudad;
     @FXML private Button btnInsertar;
@@ -59,6 +60,7 @@ public class Controller implements Initializable {
             alert.showAndWait();
         }else {
             if (comprobarExistencia(str)) {//comprueba si hay valores repetidos
+                selecionadosP.add(cbPais.getValue());
                 selecionados.add(str);
                 String ac = "";
                 for (String x : selecionados) {
