@@ -17,6 +17,7 @@ public class Controller implements Initializable {
     private Paises listaPaises;
     private ArrayList<String> selecionados;
     private ArrayList<String> selecionadosP;
+
     @FXML private ComboBox<String> cbPais;
     @FXML private ComboBox<String> cbCiudad;
     @FXML private Button btnInsertar;
@@ -112,6 +113,7 @@ public class Controller implements Initializable {
             listaPaises=new Paises();
             cbPais.setItems(listaPaises.getCountries());
             selecionados=new ArrayList<>();
+            selecionadosP=new ArrayList<>();
 
 
     }
