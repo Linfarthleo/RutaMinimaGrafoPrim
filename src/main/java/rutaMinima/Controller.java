@@ -9,15 +9,18 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+
 
 public class Controller implements Initializable {
     private Paises listaPaises;
-
+    private ArrayList<String> selecionados;
     @FXML private ComboBox<String> cbPais;
     @FXML private ComboBox<String> cbCiudad;
     @FXML private Button btnInsertar;
-    @FXML private TableView<String> tbCiudades;
+    @FXML private Button btnEliminar;
+    @FXML private TextArea taCiudades;
 
 
     public void onExitButtonClicked(MouseEvent event) {
@@ -47,15 +50,56 @@ public class Controller implements Initializable {
     }
 
     public void onBtnInsertarClicked(MouseEvent event){
+        btnEliminar.setDisable(false);
         String str = cbCiudad.getValue();
+        if(comprobarExistencia(str)) {//comprueba si hay valores repetidos
+            selecionados.add(str);
+            String ac = "";
+            for (String x : selecionados) {
+                ac += x + "\n";
 
+            }
+            taCiudades.setText(ac);
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Ciudad Duplicada");
+            alert.showAndWait();
+        }
+    }
 
+    public boolean comprobarExistencia(String str){
+
+        for (String x:selecionados){
+                if(x.equals(str)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void onBtnEliminarClicked(MouseEvent event){
+        String str = cbCiudad.getValue();
+        if(!comprobarExistencia(str)){//comprueba que exista
+            selecionados.remove(str);
+            String ac = "";
+            for (String x : selecionados) {
+                ac += x + "\n";
+
+            }
+            taCiudades.setText(ac);
+
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("La ciudad no existe dentro de la Lista");
+            alert.showAndWait();
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
             listaPaises=new Paises();
             cbPais.setItems(listaPaises.getCountries());
+            selecionados=new ArrayList<>();
 
 
     }
