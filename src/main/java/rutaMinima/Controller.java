@@ -52,18 +52,28 @@ public class Controller implements Initializable {
     public void onBtnInsertarClicked(MouseEvent event){
         btnEliminar.setDisable(false);
         String str = cbCiudad.getValue();
-        if(comprobarExistencia(str)) {//comprueba si hay valores repetidos
-            selecionados.add(str);
-            String ac = "";
-            for (String x : selecionados) {
-                ac += x + "\n";
+        System.out.println(str);
+        if(str==null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Selecione una Ciudad");
+            alert.showAndWait();
+        }else {
+            if (comprobarExistencia(str)) {//comprueba si hay valores repetidos
+                selecionados.add(str);
+                String ac = "";
+                for (String x : selecionados) {
+                    ac += x + "\n";
+
+                }
+                taCiudades.setText(ac);
+            } else {
+
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Ciudad Duplicada");
+                alert.showAndWait();
 
             }
-            taCiudades.setText(ac);
-        }else{
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Ciudad Duplicada");
-            alert.showAndWait();
+            btnInsertar.setDisable(true);
         }
     }
 

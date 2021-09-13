@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
@@ -113,12 +114,17 @@
                         </JFXButton>
                      </children>
                   </AnchorPane>
-                  <TextArea fx:id="taCiudades" editable="false" layoutX="373.0" layoutY="66.0" prefHeight="334.0" prefWidth="252.0" promptText="Lista Vacia" />
+                  <TextArea fx:id="taCiudades" editable="false" layoutX="373.0" layoutY="66.0" prefHeight="200.0" prefWidth="252.0" promptText="Lista Vacia" />
                   <Label layoutX="373.0" layoutY="30.0" prefHeight="18.0" prefWidth="220.0" text="Ciudades Selecionadas">
                      <font>
                         <Font name="Verdana Bold" size="14.0" />
                      </font>
                   </Label>
+                  <Button layoutX="416.0" layoutY="310.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="165.0" text="Conectar Ciudades">
+                     <font>
+                        <Font name="Verdana Bold" size="12.0" />
+                     </font>
+                  </Button>
                </children></AnchorPane>
             <AnchorPane opacity="0.6" prefHeight="400.0" prefWidth="601.0" styleClass="root2" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
