@@ -18,20 +18,8 @@ public class Paises {
                     "Brasil",
                     "Chile",
                     "Colombia",
-                    /*"Costa Rica",
-                    "Cuba",
-                     */
                     "Ecuador"
-                    /*"El Salvador",
-                    "Guatemala",
-                    "Honduras",
-                    "México",
-                    "Nicaragua",
-                    "Panamá",
-                    "Paraguay",
-                    "Perú",
-                    "Uruguay",
-                    "Venezuela"*/
+
             );
     ObservableList<String> AeropuertosArgentinos =
             FXCollections.observableArrayList(
