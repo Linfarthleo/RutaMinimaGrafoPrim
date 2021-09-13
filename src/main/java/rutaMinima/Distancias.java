@@ -15,7 +15,7 @@ public class Distancias {
 
     }
 
-    public int optenerDistancia(Paises paises, String pais1, String c1, String pais2, String c2){
+    public int obtenerDistancia(Paises paises, String pais1, String c1, String pais2, String c2){
         boolean b=false;//bandera
 
         //indice de el pais y ciudad 1
@@ -25,6 +25,12 @@ public class Distancias {
         int idp2 = paises.countryItems.indexOf(pais2);
         int idc2 = paises.getStates(idp2).indexOf(c2);
 
+        //si son iguales retorna 0 y se termina
+
+        if(idp1==idp2 && idc1==idc2){
+            return 0;
+        }
+        
         //creacion de la distancia
         int metros=(int)(Math.random()*(10000-200+1)+200);
         int [] distancia ={idp1,idc1,idp2,idc2,metros};//creacion de arreglo con los datos
