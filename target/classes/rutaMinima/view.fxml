@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -25,7 +30,7 @@
                      </HBox.margin>
                   </ImageView>
                   <Separator prefHeight="3.0" prefWidth="57.0" visible="false" />
-                  <JFXButton prefHeight="71.0" prefWidth="153.0" text="Seleccionar      Rutas" textFill="WHITE" wrapText="true">
+                  <JFXButton fx:id="seleccionarButton" onMouseClicked="#onSeleccionarCiudadesButtonClicked" prefHeight="71.0" prefWidth="153.0" text="Seleccionar Ciudades" textFill="WHITE" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="53.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -37,7 +42,7 @@
                         <Font name="Verdana Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton prefHeight="71.0" prefWidth="144.0" text="Ingresar   Rutas" textFill="WHITE" wrapText="true">
+                  <JFXButton fx:id="ingresarButton" onMouseClicked="#onIngresarCiudadesButtonClicked" prefHeight="71.0" prefWidth="144.0" text="Ingresar   Rutas" textFill="WHITE" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="51.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -49,7 +54,7 @@
                         <Font name="Verdana Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton prefHeight="71.0" prefWidth="156.0" text="  Rutas Optimas" textFill="WHITE" wrapText="true">
+                  <JFXButton fx:id="rutasButton" onMouseClicked="#onRutasOptimasButtonClicked" prefHeight="71.0" prefWidth="156.0" text="  Rutas Optimas" textFill="WHITE" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="57.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -75,11 +80,122 @@
                </children>
             </HBox>
          </children></AnchorPane>
-      <AnchorPane layoutX="17.0" layoutY="115.0" prefHeight="467.0" prefWidth="675.0" styleClass="root3" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane fx:id="mainPanel" layoutX="17.0" layoutY="115.0" prefHeight="467.0" prefWidth="675.0" styleClass="root3" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <AnchorPane opacity="0.6" prefHeight="400.0" prefWidth="601.0" styleClass="root" stylesheets="@style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-            <AnchorPane opacity="0.6" prefHeight="400.0" prefWidth="601.0" styleClass="root2" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            <AnchorPane fx:id="seleccionarCiudadesPanel" prefHeight="400.0" prefWidth="601.0" styleClass="root" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <AnchorPane layoutX="37.0" layoutY="30.0" prefHeight="370.0" prefWidth="290.0" style="-fx-background-color: #1a2d4c;" styleClass="root3" stylesheets="@style.css">
+                     <children>
+                        <Label layoutX="44.0" layoutY="48.0" text="Seleccionar Ciudades" textFill="WHITE">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="44.0" layoutY="100.0" text="País:" textFill="WHITE">
+                           <font>
+                              <Font name="Verdana Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXComboBox fx:id="cbPais" blendMode="EXCLUSION" layoutX="116.0" layoutY="95.0" onAction="#onActionCBPais" prefHeight="26.0" prefWidth="109.0" promptText="País" unFocusColor="WHITE" AnchorPane.rightAnchor="64.79999999999998" />
+                        <Label layoutX="44.0" layoutY="149.0" text="Ciudad:" textFill="WHITE">
+                           <font>
+                              <Font name="Verdana Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXComboBox fx:id="cbCiudad" blendMode="EXCLUSION" disable="true" layoutX="116.0" layoutY="144.0" onAction="#onActionCBCiudad" prefHeight="26.0" prefWidth="109.0" promptText="Ciudad" unFocusColor="WHITE" />
+                        <JFXButton fx:id="btnInsertar" disable="true" layoutX="44.0" layoutY="247.0" onMouseClicked="#onBtnInsertarClicked" ripplerFill="WHITE" text="Insertar" textFill="#f4f4f4">
+                           <font>
+                              <Font name="Verdana Bold" size="12.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnEliminar" disable="true" layoutX="171.0" layoutY="247.0" onMouseClicked="#onBtnEliminarClicked" text="Eliminar" textFill="#f4f4f4">
+                           <font>
+                              <Font name="Verdana Bold" size="12.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+                  <TextArea fx:id="taCiudades" editable="false" layoutX="373.0" layoutY="66.0" prefHeight="200.0" prefWidth="252.0" promptText="Lista Vacia" />
+                  <Label layoutX="405.0" layoutY="30.0" prefHeight="18.0" prefWidth="187.0" text="Ciudades Selecionadas">
+                     <font>
+                        <Font name="Verdana Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="416.0" layoutY="310.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="165.0" text="Conectar Ciudades">
+                     <font>
+                        <Font name="Verdana Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="ingresarCiudadesPanel" prefHeight="400.0" prefWidth="601.0" styleClass="root2" stylesheets="@style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <AnchorPane layoutX="38.0" layoutY="39.0" prefHeight="370.0" prefWidth="290.0" style="-fx-background-color: #1a2d4c;" styleClass="root3" stylesheets="@style.css">
+                     <children>
+                        <Label layoutX="44.0" layoutY="48.0" text="Ingresar Ciudades" textFill="WHITE">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="44.0" layoutY="100.0" text="País:" textFill="WHITE">
+                           <font>
+                              <Font name="Verdana Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="44.0" layoutY="150.0" text="Ciudad:" textFill="WHITE">
+                           <font>
+                              <Font name="Verdana Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXButton fx:id="btnInsertar1" disable="true" layoutX="44.0" layoutY="247.0" onMouseClicked="#onBtnInsertarClicked" ripplerFill="WHITE" text="Insertar" textFill="#f4f4f4">
+                           <font>
+                              <Font name="Verdana Bold" size="12.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnEliminar1" disable="true" layoutX="171.0" layoutY="247.0" onMouseClicked="#onBtnEliminarClicked" text="Eliminar" textFill="#f4f4f4">
+                           <font>
+                              <Font name="Verdana Bold" size="12.0" />
+                           </font>
+                        </JFXButton>
+                        <TextField layoutX="127.0" layoutY="96.0" prefHeight="25.0" prefWidth="109.0" />
+                        <TextField layoutX="127.0" layoutY="145.0" prefHeight="25.0" prefWidth="109.0" />
+                        <Label layoutX="44.0" layoutY="192.0" text="Distancia:" textFill="WHITE">
+                           <font>
+                              <Font name="Verdana Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutX="127.0" layoutY="188.0" prefHeight="25.0" prefWidth="109.0" />
+                     </children>
+                  </AnchorPane>
+                  <TextArea fx:id="taCiudades1" editable="false" layoutX="370.0" layoutY="95.0" prefHeight="200.0" prefWidth="252.0" promptText="Lista Vacia" />
+                  <Label layoutX="368.0" layoutY="62.0" prefHeight="18.0" prefWidth="252.0" styleClass="root3" stylesheets="@style.css" text="        Ciudades Ingresadas" textAlignment="RIGHT" textFill="WHITE">
+                     <font>
+                        <Font name="Verdana Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="414.0" layoutY="322.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="165.0" text="Conectar Ciudades">
+                     <font>
+                        <Font name="Verdana Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children></AnchorPane>
+            <AnchorPane fx:id="rutasOptimasPanel" opacity="0.7" prefHeight="200.0" prefWidth="200.0" styleClass="root4" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
+      <ImageView fx:id="arrowTres" fitHeight="51.0" fitWidth="54.0" layoutX="451.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@images/collapse_arrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arrowDos" fitHeight="51.0" fitWidth="54.0" layoutX="312.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@images/collapse_arrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arrowUno" fitHeight="51.0" fitWidth="54.0" layoutX="178.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/collapse_arrow.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
