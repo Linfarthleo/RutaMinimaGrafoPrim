@@ -29,8 +29,7 @@ public class Controller implements Initializable {
     @FXML private AnchorPane ingresarCiudadesPanel;
     @FXML private AnchorPane rutasOptimasPanel;
     @FXML private AnchorPane mainPanel;
-    @FXML
-    private ImageView arrowUno;
+    @FXML private ImageView arrowUno;
     @FXML
     private ImageView arrowDos;
     @FXML
