@@ -29,7 +29,7 @@
                      </HBox.margin>
                   </ImageView>
                   <Separator prefHeight="3.0" prefWidth="57.0" visible="false" />
-                  <JFXButton prefHeight="71.0" prefWidth="153.0" text="Seleccionar Ciudades" textFill="WHITE" wrapText="true">
+                  <JFXButton fx:id="seleccionarButton" onMouseClicked="#onSeleccionarCiudadesButtonClicked" prefHeight="71.0" prefWidth="153.0" text="Seleccionar Ciudades" textFill="WHITE" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="53.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -41,7 +41,7 @@
                         <Font name="Verdana Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton prefHeight="71.0" prefWidth="144.0" text="Ingresar   Rutas" textFill="WHITE" wrapText="true">
+                  <JFXButton fx:id="ingresarButton" onMouseClicked="#onIngresarCiudadesButtonClicked" prefHeight="71.0" prefWidth="144.0" text="Ingresar   Rutas" textFill="WHITE" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="51.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -53,7 +53,7 @@
                         <Font name="Verdana Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton prefHeight="71.0" prefWidth="156.0" text="  Rutas Optimas" textFill="WHITE" wrapText="true">
+                  <JFXButton fx:id="rutasButton" onMouseClicked="#onRutasOptimasButtonClicked" prefHeight="71.0" prefWidth="156.0" text="  Rutas Optimas" textFill="WHITE" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="57.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -79,9 +79,9 @@
                </children>
             </HBox>
          </children></AnchorPane>
-      <AnchorPane layoutX="17.0" layoutY="115.0" prefHeight="467.0" prefWidth="675.0" styleClass="root3" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane fx:id="mainPanel" layoutX="17.0" layoutY="115.0" prefHeight="467.0" prefWidth="675.0" styleClass="root3" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <AnchorPane opacity="0.6" prefHeight="400.0" prefWidth="601.0" styleClass="root" stylesheets="@style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <AnchorPane fx:id="seleccionarCiudadesPanel" opacity="0.6" prefHeight="400.0" prefWidth="601.0" styleClass="root" stylesheets="@style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <children>
                   <AnchorPane layoutX="37.0" layoutY="30.0" prefHeight="370.0" prefWidth="290.0" style="-fx-background-color: #1a2d4c;">
                      <children>
@@ -125,9 +125,26 @@
                         <Font name="Verdana Bold" size="12.0" />
                      </font>
                   </Button>
-               </children></AnchorPane>
-            <AnchorPane opacity="0.6" prefHeight="400.0" prefWidth="601.0" styleClass="root2" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="ingresarCiudadesPanel" opacity="0.6" prefHeight="400.0" prefWidth="601.0" styleClass="root2" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            <AnchorPane fx:id="rutasOptimasPanel" opacity="0.7" prefHeight="200.0" prefWidth="200.0" styleClass="root4" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
+      <ImageView fx:id="arrowUno" fitHeight="51.0" fitWidth="54.0" layoutX="178.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/collapse_arrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arrowDos" fitHeight="51.0" fitWidth="54.0" layoutX="312.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@images/collapse_arrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arrowTres" fitHeight="51.0" fitWidth="54.0" layoutX="451.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@images/collapse_arrow.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

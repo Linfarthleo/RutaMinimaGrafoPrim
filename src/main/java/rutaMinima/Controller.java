@@ -6,7 +6,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -23,6 +25,16 @@ public class Controller implements Initializable {
     @FXML private Button btnInsertar;
     @FXML private Button btnEliminar;
     @FXML private TextArea taCiudades;
+    @FXML private AnchorPane seleccionarCiudadesPanel;
+    @FXML private AnchorPane ingresarCiudadesPanel;
+    @FXML private AnchorPane rutasOptimasPanel;
+    @FXML private AnchorPane mainPanel;
+    @FXML
+    private ImageView arrowUno;
+    @FXML
+    private ImageView arrowDos;
+    @FXML
+    private ImageView arrowTres;
 
 
     public void onExitButtonClicked(MouseEvent event) {
@@ -35,6 +47,54 @@ public class Controller implements Initializable {
             System.exit(0);
         }
     }
+
+    public void onSeleccionarCiudadesButtonClicked(MouseEvent event) {
+        if (mainPanel.isVisible()&&seleccionarCiudadesPanel.isVisible()) {
+            mainPanel.setVisible(false);
+            arrowUno.setVisible(false);
+            return;
+        }
+        mainPanel.setVisible(true);
+        seleccionarCiudadesPanel.setVisible(true);
+        arrowUno.setVisible(true);
+        ingresarCiudadesPanel.setVisible(false);
+        arrowDos.setVisible(false);
+        rutasOptimasPanel.setVisible(false);
+        arrowTres.setVisible(false);
+    }
+    public void onIngresarCiudadesButtonClicked(MouseEvent event) {
+        if (mainPanel.isVisible()&&ingresarCiudadesPanel.isVisible()) {
+            mainPanel.setVisible(false);
+            arrowDos.setVisible(false);
+            return;
+        }
+        mainPanel.setVisible(true);
+        seleccionarCiudadesPanel.setVisible(false);
+        arrowUno.setVisible(false);
+        ingresarCiudadesPanel.setVisible(true);
+        arrowDos.setVisible(true);
+        rutasOptimasPanel.setVisible(false);
+        arrowTres.setVisible(false);
+    }
+    public void onRutasOptimasButtonClicked(MouseEvent event) {
+        if (mainPanel.isVisible()&&rutasOptimasPanel.isVisible()) {
+            mainPanel.setVisible(false);
+            arrowTres.setVisible(false);
+            return;
+        }
+        mainPanel.setVisible(true);
+        seleccionarCiudadesPanel.setVisible(false);
+        arrowUno.setVisible(false);
+        ingresarCiudadesPanel.setVisible(false);
+        arrowDos.setVisible(false);
+        rutasOptimasPanel.setVisible(true);
+        arrowTres.setVisible(true);
+    }
+
+
+
+
+
 
     public void onActionCBPais(ActionEvent event){
         cbCiudad.setDisable(false);
@@ -114,7 +174,5 @@ public class Controller implements Initializable {
             cbPais.setItems(listaPaises.getCountries());
             selecionados=new ArrayList<>();
             selecionadosP=new ArrayList<>();
-
-
     }
 }
