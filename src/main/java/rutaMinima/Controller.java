@@ -34,7 +34,7 @@ public class Controller implements Initializable {
     @FXML private ImageView arrowTres;
     @FXML private TextField ingresarPaisTextField;
     @FXML private TextField ingresarCiudadTextField;
-    @FXML private Button btn_insertar;
+    @FXML private TextArea rutasIngresadasTextArea;
 
 
 
@@ -174,7 +174,7 @@ public class Controller implements Initializable {
     //Parte Leo
 
     public void onIngresarPaisYCiudadClicked(ActionEvent event){
-        if(ingresarPaisTextField.getText()==null||ingresarCiudadTextField.getText()==null){
+        if(ingresarPaisTextField.getText()==""||ingresarCiudadTextField.getText()==""){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Ingrese Datos");
             alert.showAndWait();
@@ -182,6 +182,9 @@ public class Controller implements Initializable {
             listaPaises.ingresarPaisYCiudad(ingresarPaisTextField.getText(), ingresarCiudadTextField.getText());
         }
         cbPais.setItems(listaPaises.getCountries());
+        rutasIngresadasTextArea.appendText("País: " +ingresarPaisTextField.getText()+" --> Ciudad: "+ ingresarCiudadTextField.getText()+"\n");
+        ingresarPaisTextField.setText("");
+        ingresarCiudadTextField.setText("");
     }
 
 

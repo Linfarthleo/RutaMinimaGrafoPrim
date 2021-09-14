@@ -132,7 +132,7 @@
                <children>
                   <AnchorPane layoutX="56.0" layoutY="97.0" prefHeight="184.0" prefWidth="273.0" style="-fx-background-color: #1a2d4c;" styleClass="root3" stylesheets="@style.css">
                      <children>
-                        <Label layoutX="37.0" layoutY="29.0" text="Ingresar Rutas" textFill="WHITE">
+                        <Label layoutX="37.0" layoutY="29.0" text="Ingresar Ciudades" textFill="WHITE">
                            <font>
                               <Font name="Verdana Bold" size="14.0" />
                            </font>
@@ -149,15 +149,15 @@
                         </Label>
                         <TextField fx:id="ingresarPaisTextField" alignment="CENTER" layoutX="123.0" layoutY="62.0" prefHeight="25.0" prefWidth="109.0" promptText="Ingrese País" />
                         <TextField fx:id="ingresarCiudadTextField" alignment="CENTER" layoutX="123.0" layoutY="95.0" prefHeight="25.0" prefWidth="109.0" promptText="Ingrese Ciudad" />
-                        <JFXButton fx:id="btn_insertar" layoutX="160.0" layoutY="147.0" onMouseClicked="#onIngresarPaisYCiudadClicked" style="-fx-background-color: white;" text="Insertar">
+                        <JFXButton fx:id="btn_insertar" layoutX="160.0" layoutY="147.0" onAction="#onIngresarPaisYCiudadClicked" style="-fx-background-color: white;" text="Insertar">
                            <font>
                               <Font name="Verdana Bold" size="12.0" />
                            </font>
                         </JFXButton>
                      </children>
                   </AnchorPane>
-                  <TextArea fx:id="rutasIngresadasTextField" editable="false" layoutX="372.0" layoutY="97.0" prefHeight="184.0" prefWidth="252.0" promptText="Lista Vacia" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="372.0" layoutY="64.0" prefHeight="18.0" prefWidth="252.0" styleClass="root3" stylesheets="@style.css" text="Rutas Ingresadas" textAlignment="RIGHT" textFill="WHITE">
+                  <TextArea fx:id="rutasIngresadasTextArea" editable="false" layoutX="372.0" layoutY="97.0" prefHeight="184.0" prefWidth="252.0" promptText="Lista Vacia" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="372.0" layoutY="64.0" prefHeight="18.0" prefWidth="252.0" styleClass="root3" stylesheets="@style.css" text="Ciudades Ingresadas" textAlignment="RIGHT" textFill="WHITE">
                      <font>
                         <Font name="Verdana Bold" size="14.0" />
                      </font>
