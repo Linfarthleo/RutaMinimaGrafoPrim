@@ -82,7 +82,7 @@
          </children></AnchorPane>
       <AnchorPane fx:id="mainPanel" layoutX="17.0" layoutY="115.0" prefHeight="467.0" prefWidth="675.0" styleClass="root3" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <AnchorPane fx:id="seleccionarCiudadesPanel" prefHeight="400.0" prefWidth="601.0" styleClass="root" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <AnchorPane fx:id="seleccionarCiudadesPanel" prefHeight="400.0" prefWidth="601.0" styleClass="root" stylesheets="@style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <children>
                   <AnchorPane layoutX="38.0" layoutY="66.0" prefHeight="287.0" prefWidth="290.0" style="-fx-background-color: #1a2d4c;" styleClass="root3" stylesheets="@style.css">
                      <children>
@@ -116,7 +116,7 @@
                      </children>
                   </AnchorPane>
                   <TextArea fx:id="taCiudades" editable="false" layoutX="374.0" layoutY="102.0" prefHeight="200.0" prefWidth="252.0" promptText="Lista Vacia" />
-                  <Button layoutX="417.0" layoutY="314.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="165.0" text="Conectar Ciudades">
+                  <Button fx:id="btn_conectarCiudades" layoutX="417.0" layoutY="314.0" mnemonicParsing="false" onAction="#onConectarCiudadesButtonClicked" prefHeight="39.0" prefWidth="165.0" text="Conectar Ciudades">
                      <font>
                         <Font name="Verdana Bold" size="12.0" />
                      </font>
@@ -128,7 +128,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="ingresarCiudadesPanel" prefHeight="400.0" prefWidth="601.0" styleClass="root2" stylesheets="@style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <AnchorPane fx:id="ingresarCiudadesPanel" prefHeight="400.0" prefWidth="601.0" styleClass="root2" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <children>
                   <AnchorPane layoutX="56.0" layoutY="97.0" prefHeight="184.0" prefWidth="273.0" style="-fx-background-color: #1a2d4c;" styleClass="root3" stylesheets="@style.css">
                      <children>

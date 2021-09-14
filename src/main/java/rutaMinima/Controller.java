@@ -187,6 +187,18 @@ public class Controller implements Initializable {
         ingresarCiudadTextField.setText("");
     }
 
+    //Parte Karla
+
+    public void onConectarCiudadesButtonClicked(ActionEvent event){
+        mainPanel.setVisible(true);
+        seleccionarCiudadesPanel.setVisible(false);
+        arrowUno.setVisible(false);
+        ingresarCiudadesPanel.setVisible(false);
+        arrowDos.setVisible(false);
+        rutasOptimasPanel.setVisible(true);
+        arrowTres.setVisible(true);
+    }
+
 
 
     @Override
