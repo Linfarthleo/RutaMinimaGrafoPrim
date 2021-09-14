@@ -164,6 +164,19 @@ public class Paises {
 
     }
 
+    public void ingresarPaisYCiudad(String pais, String ciudad){
+        if(!(countryItems.contains(pais))){
+            countryItems.add(pais);
+            ObservableList<String> aeropuertoPais = FXCollections.observableArrayList();
+            statesItems.add(aeropuertoPais);
+        }
+        if(!(statesItems.get(countryItems.indexOf(pais)).contains(ciudad))){
+            statesItems.get(countryItems.indexOf(pais)).add(ciudad);
+        }
+    }
+
+
+
     public ObservableList<String> getCountries() {
         return countryItems;
     }

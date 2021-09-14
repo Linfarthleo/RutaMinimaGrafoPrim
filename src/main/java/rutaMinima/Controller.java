@@ -30,10 +30,14 @@ public class Controller implements Initializable {
     @FXML private AnchorPane rutasOptimasPanel;
     @FXML private AnchorPane mainPanel;
     @FXML private ImageView arrowUno;
-    @FXML
-    private ImageView arrowDos;
-    @FXML
-    private ImageView arrowTres;
+    @FXML private ImageView arrowDos;
+    @FXML private ImageView arrowTres;
+    @FXML private TextField ingresarPaisTextField;
+    @FXML private TextField ingresarCiudadTextField;
+    @FXML private Button btn_insertar;
+
+
+
 
 
     public void onExitButtonClicked(MouseEvent event) {
@@ -93,7 +97,7 @@ public class Controller implements Initializable {
 
 
 
-
+//Parte Emilio
 
     public void onActionCBPais(ActionEvent event){
         cbCiudad.setDisable(false);
@@ -166,6 +170,21 @@ public class Controller implements Initializable {
             alert.showAndWait();
         }
     }
+
+    //Parte Leo
+
+    public void onIngresarPaisYCiudadClicked(ActionEvent event){
+        if(ingresarPaisTextField.getText()==null||ingresarCiudadTextField.getText()==null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Ingrese Datos");
+            alert.showAndWait();
+        }else {
+            listaPaises.ingresarPaisYCiudad(ingresarPaisTextField.getText(), ingresarCiudadTextField.getText());
+        }
+        cbPais.setItems(listaPaises.getCountries());
+    }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
