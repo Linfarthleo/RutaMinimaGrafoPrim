@@ -30,10 +30,14 @@ public class Controller implements Initializable {
     @FXML private AnchorPane rutasOptimasPanel;
     @FXML private AnchorPane mainPanel;
     @FXML private ImageView arrowUno;
-    @FXML
-    private ImageView arrowDos;
-    @FXML
-    private ImageView arrowTres;
+    @FXML private ImageView arrowDos;
+    @FXML private ImageView arrowTres;
+    @FXML private TextField ingresarPaisTextField;
+    @FXML private TextField ingresarCiudadTextField;
+    @FXML private TextArea rutasIngresadasTextArea;
+
+
+
 
 
     public void onExitButtonClicked(MouseEvent event) {
@@ -93,7 +97,7 @@ public class Controller implements Initializable {
 
 
 
-
+//Parte Emilio
 
     public void onActionCBPais(ActionEvent event){
         cbCiudad.setDisable(false);
@@ -166,6 +170,36 @@ public class Controller implements Initializable {
             alert.showAndWait();
         }
     }
+
+    //Parte Leo
+
+    public void onIngresarPaisYCiudadClicked(ActionEvent event){
+        if(ingresarPaisTextField.getText()==""||ingresarCiudadTextField.getText()==""){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Ingrese Datos");
+            alert.showAndWait();
+        }else {
+            listaPaises.ingresarPaisYCiudad(ingresarPaisTextField.getText(), ingresarCiudadTextField.getText());
+        }
+        cbPais.setItems(listaPaises.getCountries());
+        rutasIngresadasTextArea.appendText("País: " +ingresarPaisTextField.getText()+" --> Ciudad: "+ ingresarCiudadTextField.getText()+"\n");
+        ingresarPaisTextField.setText("");
+        ingresarCiudadTextField.setText("");
+    }
+
+    //Parte Karla
+
+    public void onConectarCiudadesButtonClicked(ActionEvent event){
+        mainPanel.setVisible(true);
+        seleccionarCiudadesPanel.setVisible(false);
+        arrowUno.setVisible(false);
+        ingresarCiudadesPanel.setVisible(false);
+        arrowDos.setVisible(false);
+        rutasOptimasPanel.setVisible(true);
+        arrowTres.setVisible(true);
+    }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
