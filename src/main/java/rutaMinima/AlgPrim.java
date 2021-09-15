@@ -1,4 +1,4 @@
-package rutaMinima;
+/*package rutaMinima;
 import java.util.*;
 import java.util.Scanner;
 /**
@@ -17,6 +17,8 @@ U, V y L son estructuras de datos —arreglos o listas— que permiten guardar l
         Agregar el nodo v a U
 2. {Fin del ciclo del paso 1}
 */
+
+/*
 public class AlgPrim {//permite crear un arbol de  expansion minima con menores costos
     public int esVisitado[] = new int[15]; //Arreglo que almacena los nodos visitado
     public int costo[][];//Matriz que guarda costos minimo
@@ -85,4 +87,4 @@ public class AlgPrim {//permite crear un arbol de  expansion minima con menores 
         p.calc(nodes);//calculo de nodos
     }
 
-}
+}*/
