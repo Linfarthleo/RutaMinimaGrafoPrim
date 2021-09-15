@@ -25,6 +25,7 @@ public class Controller implements Initializable {
     @FXML private ComboBox<String> cbCiudad;
     @FXML private Button btnInsertar;
     @FXML private Button btnEliminar;
+    @FXML private Button btnVaciar;
     @FXML private TextArea taCiudades;
     @FXML private TextArea cuadroRutas;
 
@@ -115,9 +116,19 @@ public class Controller implements Initializable {
         btnInsertar.setDisable(false);
 
     }
+/*
+    public void onBtnVaciarClicked(MouseEvent event){
+
+        System.out.println("Hola");
+        selecionadosP.removeAll(selecionadosP);
+        selecionados.removeAll(selecionados);
+        taCiudades.setText("");
+
+    }*/
 
     public void onBtnInsertarClicked(MouseEvent event){
         btnEliminar.setDisable(false);
+
         String str = cbCiudad.getValue();
         System.out.println(str);
         if(str==null){
@@ -192,15 +203,24 @@ public class Controller implements Initializable {
     //Parte Karla
 
     public void onConectarCiudadesButtonClicked(ActionEvent event){
-        mainPanel.setVisible(true);
-        seleccionarCiudadesPanel.setVisible(false);
-        arrowUno.setVisible(false);
-        ingresarCiudadesPanel.setVisible(false);
-        arrowDos.setVisible(false);
-        rutasOptimasPanel.setVisible(true);
-        arrowTres.setVisible(true);
 
-        matrizCostos();
+        if(!selecionados.isEmpty()){
+            mainPanel.setVisible(true);
+            seleccionarCiudadesPanel.setVisible(false);
+            arrowUno.setVisible(false);
+            ingresarCiudadesPanel.setVisible(false);
+            arrowDos.setVisible(false);
+            rutasOptimasPanel.setVisible(true);
+            arrowTres.setVisible(true);
+
+            matrizCostos();
+        }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("No ha selecionado ninguna ciudad");
+                alert.showAndWait();
+
+        }
+
 
 
 
@@ -208,7 +228,7 @@ public class Controller implements Initializable {
 
     public void matrizCostos(){
 
-        AlgPrim p = new AlgPrim ();
+        AlgPrim p = new AlgPrim (selecionados.size());
         Distancias d =new Distancias();
         int nodes,i,j;
 

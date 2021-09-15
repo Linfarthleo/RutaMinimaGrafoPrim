@@ -20,12 +20,13 @@ U, V y L son estructuras de datos —arreglos o listas— que permiten guardar l
 
 
 public class AlgPrim {
-    public int esVisitado[] = new int[15];
+    public int esVisitado[];
     public int costo[][];
     public int minimo_costo;
 
-    public AlgPrim() {
-        costo = new int[10][10];
+    public AlgPrim(int n) {
+        costo = new int[n+1][n+1];
+        esVisitado =new int[n+1];
     }
 
     public String calc(int n,ArrayList<String> paises,ArrayList<String> ciudades)
