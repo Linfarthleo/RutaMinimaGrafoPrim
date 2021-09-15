@@ -48,5 +48,9 @@ public class Distancias {
 
     }
 
+    public ArrayList<int[]> getListaDeDistancias() {
+        return listaDeDistancias;
+    }
+
 
 }

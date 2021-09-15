@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+import javax.swing.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -25,6 +26,8 @@ public class Controller implements Initializable {
     @FXML private Button btnInsertar;
     @FXML private Button btnEliminar;
     @FXML private TextArea taCiudades;
+    @FXML private TextArea cuadroRutas;
+    @FXML private TextArea cuadroRutas1;
     @FXML private AnchorPane seleccionarCiudadesPanel;
     @FXML private AnchorPane ingresarCiudadesPanel;
     @FXML private AnchorPane rutasOptimasPanel;
@@ -65,6 +68,7 @@ public class Controller implements Initializable {
         rutasOptimasPanel.setVisible(false);
         arrowTres.setVisible(false);
     }
+
     public void onIngresarCiudadesButtonClicked(MouseEvent event) {
         if (mainPanel.isVisible()&&ingresarCiudadesPanel.isVisible()) {
             mainPanel.setVisible(false);
@@ -93,8 +97,6 @@ public class Controller implements Initializable {
         rutasOptimasPanel.setVisible(true);
         arrowTres.setVisible(true);
     }
-
-
 
 
 //Parte Emilio
@@ -197,9 +199,27 @@ public class Controller implements Initializable {
         arrowDos.setVisible(false);
         rutasOptimasPanel.setVisible(true);
         arrowTres.setVisible(true);
+
+        String cg = "";
+        for (String x : selecionados) {
+            cg += x + " - ";
+        }
+        cuadroRutas.setText(cg);
+
+        Distancias distancia = new Distancias();
+       // distancia.getListaDeDistancias();
+
+        for (int i=0; i<= selecionados.size(); i++){
+            cuadroRutas1.setText(distancia.obtenerDistancia(listaPaises, selecionadosP.get(i), selecionados.get(i),
+                    selecionadosP.get(i + 1), selecionados.get(i + 1)) + " m");
+           // cuadroRutas.setText(String.valueOf(distancia.listaDeDistancias.size()));
+        }
+
+       /* AlgPrim prim = new AlgPrim();
+        int nodes = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresar en número de nodos"));
+        prim.ejecutarPrim(nodes);
+        */
     }
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -207,5 +227,7 @@ public class Controller implements Initializable {
             cbPais.setItems(listaPaises.getCountries());
             selecionados=new ArrayList<>();
             selecionadosP=new ArrayList<>();
+
     }
+
 }
