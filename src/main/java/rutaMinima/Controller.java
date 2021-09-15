@@ -27,7 +27,7 @@ public class Controller implements Initializable {
     @FXML private Button btnEliminar;
     @FXML private TextArea taCiudades;
     @FXML private TextArea cuadroRutas;
-    @FXML private TextArea cuadroRutas1;
+
     @FXML private AnchorPane seleccionarCiudadesPanel;
     @FXML private AnchorPane ingresarCiudadesPanel;
     @FXML private AnchorPane rutasOptimasPanel;
@@ -182,9 +182,9 @@ public class Controller implements Initializable {
             alert.showAndWait();
         }else {
             listaPaises.ingresarPaisYCiudad(ingresarPaisTextField.getText(), ingresarCiudadTextField.getText());
+            rutasIngresadasTextArea.appendText("País: " +ingresarPaisTextField.getText()+" --> Ciudad: "+ ingresarCiudadTextField.getText()+"\n");
         }
         cbPais.setItems(listaPaises.getCountries());
-        rutasIngresadasTextArea.appendText("País: " +ingresarPaisTextField.getText()+" --> Ciudad: "+ ingresarCiudadTextField.getText()+"\n");
         ingresarPaisTextField.setText("");
         ingresarCiudadTextField.setText("");
     }
@@ -200,25 +200,33 @@ public class Controller implements Initializable {
         rutasOptimasPanel.setVisible(true);
         arrowTres.setVisible(true);
 
-        String cg = "";
-        for (String x : selecionados) {
-            cg += x + " - ";
-        }
-        cuadroRutas.setText(cg);
+        matrizCostos();
 
-        Distancias distancia = new Distancias();
-       // distancia.getListaDeDistancias();
 
-        for (int i=0; i<= selecionados.size(); i++){
-            cuadroRutas1.setText(distancia.obtenerDistancia(listaPaises, selecionadosP.get(i), selecionados.get(i),
-                    selecionadosP.get(i + 1), selecionados.get(i + 1)) + " m");
-           // cuadroRutas.setText(String.valueOf(distancia.listaDeDistancias.size()));
-        }
 
-       /* AlgPrim prim = new AlgPrim();
-        int nodes = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresar en número de nodos"));
-        prim.ejecutarPrim(nodes);
-        */
+    }
+
+    public void matrizCostos(){
+
+        AlgPrim p = new AlgPrim ();
+        Distancias d =new Distancias();
+        int nodes,i,j;
+
+        nodes=selecionados.size();
+
+        for(i=1;i<=nodes;i++)
+            for(j=1;j<=nodes;j++)
+            {
+                p.costo[i][j]=d.obtenerDistancia(listaPaises, selecionadosP.get(i-1),selecionados.get(i-1),selecionadosP.get(j-1),selecionados.get(j-1));
+                System.out.println(p.costo[i][j]);
+
+                if(p.costo[i][j]==0)
+                    p.costo[i][j]=999999;
+            }
+
+        p.esVisitado[1]=1;
+        cuadroRutas.setText(p.calc(nodes,selecionadosP,selecionados));
+
     }
 
     @Override
