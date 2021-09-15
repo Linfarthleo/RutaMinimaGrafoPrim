@@ -1,11 +1,9 @@
-/*package rutaMinima;
-
-import javax.swing.*;
+package rutaMinima;
 import java.util.*;
 import java.util.Scanner;
 /**
  *
- * @author Emilio Montalvo,Leonardo Asitimbaya,Karla Vivas
+ * @author Emilio Montalvo,Fernando Asitimbaya,Karla Vivas
  */
 /*
 Prim (N)
@@ -19,11 +17,9 @@ U, V y L son estructuras de datos —arreglos o listas— que permiten guardar l
         Agregar el nodo v a U
 2. {Fin del ciclo del paso 1}
 */
-
-/*
 public class AlgPrim {//permite crear un arbol de  expansion minima con menores costos
-    public int esVisitado[] = new int[15];//Arreglo que almacena los nodos visitado
-    public int costo[][] = new int[10][10];//Matriz que guarda costos minimo
+    public int esVisitado[] = new int[15]; //Arreglo que almacena los nodos visitado
+    public int costo[][];//Matriz que guarda costos minimo
     public int minimo_costo;//valor de un minimo costo
 
     public void calc(int n)//permite calcular los costos minimos
@@ -49,7 +45,7 @@ public class AlgPrim {//permite crear un arbol de  expansion minima con menores 
                         }
             if(this.esVisitado[minpos_i]==0 || this.esVisitado[minpos_j]==0)//no exite enlace
             {
-                JOptionPane.showMessageDialog(null,"Visitamos nodo \t"+num_edges+"\t desde vértice \t"+a+"\t a vértice \t"+b+"-minicosto:"+min+" \n");
+                System.out.println("Visitamos nodo \t"+num_edges+"\t desde vértice \t"+a+"\t a vértice \t"+b+"-minicosto:"+min+" \n");
                 this.minimo_costo=this.minimo_costo+min;//toam valor de minimo costo
                 num_edges=num_edges+1;//pasa al siguiente nodo
                 this.esVisitado[b]=1;//marca el nodo como visitado
@@ -59,32 +55,14 @@ public class AlgPrim {//permite crear un arbol de  expansion minima con menores 
 
         }
 
-    }*/
-
-   /* public void ejecutarPrim(Integer nodes){
-        //permite crear arbol expandido
-        //int nodes,i,j;
-        int i,j;
-        //ingresa el valor de nodos por teclafo
-        Scanner in = new Scanner(System.in);
-        //System.out.println("Ingresar en número de nodos \n");
-        //nodes = in.nextInt();
-        AlgPrim p = new AlgPrim ();//crea objeto de la clase prim
-        //Ingresar los Pesos o Costos a la Matriz de Adyacencia etiquetada
-        // System.out.println("Ingresar los Pesos o Costos a la Matriz de Adyacencia etiquetada : \n");
-        for(i=1;i<=nodes;i++)
-            for(j=1;j<=nodes;j++)
-            {
-                p.costo[i][j]=Integer.parseInt(JOptionPane.showInputDialog(null,"Ingresar los Pesos o Costos a la Matriz de Adyacencia etiquetada ("+i+", "+j+" ) :"));;
-                if(p.costo[i][j]==0)
-                    p.costo[i][j]=999;//si no hay camino se coloca infinito
-            }
-
-        p.esVisitado[1]=1; // Inicialización para que parta desde el vertice de origen
-        p.calc(nodes);//calculo de nodos
     }
 
-    /*public static void main(String args[])
+    public AlgPrim(int[] esVisitado, int n) {
+        costo = new int[n][n];
+        this.esVisitado = esVisitado;
+    }
+
+    public static void main(String args[])
     {
         //permite crear arbol expandido
         int nodes,i,j;
@@ -105,7 +83,6 @@ public class AlgPrim {//permite crear un arbol de  expansion minima con menores 
 
         p.esVisitado[1]=1; // Inicialización para que parta desde el vertice de origen
         p.calc(nodes);//calculo de nodos
+    }
 
-
-    }*/
-//}
+}
