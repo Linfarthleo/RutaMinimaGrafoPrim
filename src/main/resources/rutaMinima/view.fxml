@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -166,13 +165,14 @@
                </children></AnchorPane>
             <AnchorPane fx:id="rutasOptimasPanel" prefHeight="200.0" prefWidth="200.0" styleClass="root4" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <children>
-                  <JFXTextArea fx:id="cuadroRutas" editable="false" layoutX="88.0" layoutY="133.0" onMouseClicked="#onConectarCiudadesButtonClicked" prefHeight="148.0" prefWidth="478.0" style="-fx-background-color: #a9deca;" />
-                  <Label alignment="CENTER" layoutX="267.0" layoutY="76.0" prefHeight="25.0" prefWidth="94.0" styleClass="root3" text="Rutas" textFill="WHITE">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="281.0" layoutY="92.0" prefHeight="18.0" prefWidth="94.0" styleClass="root3" text="Rutas" textAlignment="RIGHT" textFill="WHITE">
                      <font>
-                        <Font name="Verdana Bold" size="21.0" />
+                        <Font name="Verdana Bold" size="14.0" />
                      </font>
                   </Label>
-               </children></AnchorPane>
+                  <TextArea fx:id="cuadroRutas" editable="false" layoutX="91.0" layoutY="141.0" prefHeight="178.0" prefWidth="473.0" promptText="Aun no ha seleccionado ciudades" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
       <ImageView fx:id="arrowTres" fitHeight="51.0" fitWidth="54.0" layoutX="451.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
