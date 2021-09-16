@@ -17,9 +17,10 @@ import java.util.ResourceBundle;
 
 
 public class Controller implements Initializable {
-    private Paises listaPaises;
-    private ArrayList<String> selecionados;
-    private ArrayList<String> selecionadosP;
+    private Paises listaPaises;//Objeto de la calse paises
+    private ArrayList<String> selecionados;//Almacena las ciudades Selecionadas
+    private ArrayList<String> selecionadosP;//Alamcena los paises selecionados(se relaciona con la ciudades mediante el indice)
+    private Distancias distanciasGeneradas;
 
     @FXML private ComboBox<String> cbPais;
     @FXML private ComboBox<String> cbCiudad;
@@ -40,10 +41,7 @@ public class Controller implements Initializable {
     @FXML private TextField ingresarCiudadTextField;
     @FXML private TextArea rutasIngresadasTextArea;
 
-
-
-
-
+    //boton para salir
     public void onExitButtonClicked(MouseEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Salir");
@@ -106,15 +104,16 @@ public class Controller implements Initializable {
     public void onActionCBPais(ActionEvent event){
         cbCiudad.setDisable(false);//habilita el combo box de ciudad
         cbCiudad.setDisable(false);
-        for (int i=0;i< listaPaises.getSize();i++){
+        for (int i=0;i< listaPaises.getSize();i++){//busca las ciudades del pais correspondiente
             if(cbPais.getValue().equals(listaPaises.getCountry(i))){
-                cbCiudad.setItems(listaPaises.getStates(i));
+                cbCiudad.setItems(listaPaises.getStates(i));//llena el combo box de paises
             }
         }
     }
 
+    //cuando se usa el combo box de ciudad
     public void onActionCBCiudad(ActionEvent event){
-        btnInsertar.setDisable(false);
+        btnInsertar.setDisable(false);//se habilita el boton de insertar una vez selecionada una ciudad
 
     }
 /*
@@ -127,66 +126,73 @@ public class Controller implements Initializable {
 
     }*/
 
+    //boton insertar
     public void onBtnInsertarClicked(MouseEvent event){
-        btnEliminar.setDisable(false);
+        btnEliminar.setDisable(false);//una ves que se inserta una ciudad se habilita el boton eliminar
 
-        String str = cbCiudad.getValue();
-        System.out.println(str);
-        if(str==null){
+
+        String str = cbCiudad.getValue();//obtiene la ciudad seleccionada
+        //System.out.println(str);
+        if(str==null){//si no se ha selecionado una ciudad imprime un mensaje de error
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Selecione una Ciudad");
             alert.showAndWait();
         }else {
             if (comprobarExistencia(str)) {//comprueba si hay valores repetidos
-                selecionadosP.add(cbPais.getValue());
-                selecionados.add(str);
-                String ac = "";
+                selecionadosP.add(cbPais.getValue());//añade los paises selecionados a una lista
+                selecionados.add(str);//añade las ciudades selecionadas a una lista
+                String ac = "";//acumulador
                 for (String x : selecionados) {
-                    ac += x + "\n";
+                    ac += x + "\n";//recorre la lista de ciudades y añade los nombre al string ac
 
                 }
-                taCiudades.setText(ac);
+                taCiudades.setText(ac);//Escribe el string ac en el Text Area
             } else {
 
+                //si es que la ciudad ya fue ingresada antes imprime un mensaje de error
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("Ciudad Duplicada");
                 alert.showAndWait();
 
             }
+            //desabilita el boton insertar hasta que se escoja otra ciudad
             btnInsertar.setDisable(true);
         }
     }
 
+    //metodo para comprobar la existencia dentro de la lista
     public boolean comprobarExistencia(String str){
 
         for (String x:selecionados){
-                if(x.equals(str)){
+                if(x.equals(str)){//secorre la lista de ciudades selecionadas retorna false si se encuentra
                 return false;
             }
         }
-        return true;
+        return true;//retorna verdadero si no
     }
 
+    //boton para eliminar una d la ciuades
     public void onBtnEliminarClicked(MouseEvent event){
-        String str = cbCiudad.getValue();
+        String str = cbCiudad.getValue();//obtinene el string de la ciudad a eliminar
         if(!comprobarExistencia(str)){//comprueba que exista
-            selecionados.remove(str);
+            selecionadosP.remove(selecionados.indexOf(str));//remueve la posicion del pais selecionado
+            selecionados.remove(str);//remueve la ciudad selecionado
             String ac = "";
             for (String x : selecionados) {
                 ac += x + "\n";
 
             }
+            //actualiza el text area
             taCiudades.setText(ac);
 
-        }else{
+        }else{//si no esta la ciudad dentro de la lista imprime el error
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("La ciudad no existe dentro de la Lista");
             alert.showAndWait();
         }
     }
 
-    //Parte Leo
-
+    //Parte de insertar ciudades
     public void onIngresarPaisYCiudadClicked(ActionEvent event){
         if(ingresarPaisTextField.getText()==""||ingresarCiudadTextField.getText()==""){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -201,8 +207,9 @@ public class Controller implements Initializable {
         ingresarCiudadTextField.setText("");
     }
 
-    //Parte Karla
+    //Parte de conectar ciudades
 
+    //boton conectar ciudades
     public void onConectarCiudadesButtonClicked(ActionEvent event){
 
         if(!selecionados.isEmpty()){
@@ -215,47 +222,51 @@ public class Controller implements Initializable {
             arrowTres.setVisible(true);
 
             matrizCostos();
-        }else{
+        }else{//si no se ha selecionado una ciudad despliega un mensaje de error
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("No ha selecionado ninguna ciudad");
                 alert.showAndWait();
 
         }
-
-
-
-
     }
 
+    //metodo para llenar la matriz de costos
     public void matrizCostos(){
 
-        AlgPrim p = new AlgPrim (selecionados.size());
-        Distancias d =new Distancias();
+        AlgPrim p = new AlgPrim (selecionados.size());//Objeto AlgPrim
+        //Distancias distanciasGeneradas =new Distancias();//Objeto distancias
         int nodes,i,j;
 
+        //asigna el nuemro de nodos que es el numero de ciudades selecionadas
         nodes=selecionados.size();
 
+        //Ingresar los Pesos o Costos a la Matriz de Adyacencia etiquetada
         for(i=1;i<=nodes;i++)
             for(j=1;j<=nodes;j++)
             {
-                p.costo[i][j]=d.obtenerDistancia(listaPaises, selecionadosP.get(i-1),selecionados.get(i-1),selecionadosP.get(j-1),selecionados.get(j-1));
+                //genera o  obtiene la distancia
+                p.costo[i][j]=distanciasGeneradas.obtenerDistancia(listaPaises, selecionadosP.get(i-1),selecionados.get(i-1),selecionadosP.get(j-1),selecionados.get(j-1));
                 System.out.println(p.costo[i][j]);
 
-                if(p.costo[i][j]==0)
+                if(p.costo[i][j]==0)//si la distancia es 0 asigna infinito
                     p.costo[i][j]=999999;
             }
 
         p.esVisitado[1]=1;
+            //coloca el el text area la forma en la que se deben conectar las
+        //ciudades para conseguir el arbol de expansion minima
         cuadroRutas.setText(p.calc(nodes,selecionadosP,selecionados));
 
     }
 
+    //inicializar
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
             listaPaises=new Paises();
             cbPais.setItems(listaPaises.getCountries());
             selecionados=new ArrayList<>();
             selecionadosP=new ArrayList<>();
+            distanciasGeneradas =new Distancias();
 
     }
 
