@@ -5,9 +5,6 @@ import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 
-/**
- * Created by glego on 12/11/2017.
- */
 public class Paises {
     //En la clase paises se crean listas que almacenan los paises y sus ciudades, estos se relacionan entre si
     //con el indice de la lista.
