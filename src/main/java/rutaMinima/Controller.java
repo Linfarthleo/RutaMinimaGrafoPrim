@@ -100,10 +100,11 @@ public class Controller implements Initializable {
     }
 
 
-//Parte Emilio
+//Parte de Selecionar Ciudades
 
+    //metodo que se ejecuta cuando se preciona el combobox
     public void onActionCBPais(ActionEvent event){
-        cbCiudad.setDisable(false);
+        cbCiudad.setDisable(false);//habilita el combo box de ciudad
         cbCiudad.setDisable(false);
         for (int i=0;i< listaPaises.getSize();i++){
             if(cbPais.getValue().equals(listaPaises.getCountry(i))){

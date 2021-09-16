@@ -9,9 +9,15 @@ import java.util.ArrayList;
  * Created by glego on 12/11/2017.
  */
 public class Paises {
-    ArrayList<ObservableList<String>> statesItems = new ArrayList<>();
+    //En la clase paises se crean listas que almacenan los paises y sus ciudades, estos se relacionan entre si
+    //con el indice de la lista.
+    //Observable list permite que las listas puedan ser usadas dentro de la interfaz de view.fxml
+    //un arraylist de Observablelist que almacena listas de las ciudades de cada pais que poseen aeropuertos
+    ArrayList<ObservableList<String>> listasDeCiudades = new ArrayList<>();
 
-    ObservableList<String> countryItems =
+    //primero se crean los paises con las ciudades que apareceran por defecto
+    //lista de paises
+    ObservableList<String> listaDePaises =
             FXCollections.observableArrayList(
                     "Argentina",
                     "Bolivia",
@@ -21,7 +27,8 @@ public class Paises {
                     "Ecuador"
 
             );
-    ObservableList<String> AeropuertosArgentinos =
+    //lista de ciudades argentinas
+    ObservableList<String> ciudadesArgentinas =
             FXCollections.observableArrayList(
                     "Buenos Aires",
                     "Catamarca",
@@ -47,7 +54,8 @@ public class Paises {
                     "Tierra del Fuego",
                     "Tucumán"
             );
-    ObservableList<String> AeropuertosColombianos =
+    //lista de ciudades argentinas
+    ObservableList<String> ciudadesColombianas =
             FXCollections.observableArrayList(
 
                     "Bogotá",
@@ -69,7 +77,8 @@ public class Paises {
                     "Neiva"
 
             );
-    ObservableList<String> AeropuertosBolivianos =
+    //lista de ciudades argentinas
+    ObservableList<String> ciudadesBolivianas =
             FXCollections.observableArrayList(
                     "Beni",
                     "Chuquisaca",
@@ -81,7 +90,8 @@ public class Paises {
                     "Santa Cruz",
                     "Tarija"
             );
-    ObservableList<String> AeropuertosBrasilenios =
+    //lista de ciudades argentinas
+    ObservableList<String> ciudadesBrasilenias =
             FXCollections.observableArrayList(
                     "Acre",
                     "Alagoas",
@@ -110,7 +120,8 @@ public class Paises {
                     "Sergipe",
                     "Tocantins"
             );
-    ObservableList<String> AeropuertosChilenos =
+    //lista de ciudades argentinas
+    ObservableList<String> ciudedesChilenas =
             FXCollections.observableArrayList(
                     "Antofagasta",
                     "Arica",
@@ -131,7 +142,8 @@ public class Paises {
                     "Talcahuano"
 
             );
-    ObservableList<String> AeropuertosEcuatorianos =
+    //lista de ciudades argentinas
+    ObservableList<String> ciudadesChilenas =
             FXCollections.observableArrayList(
                     "Andoas (Pastaza)",
                         "Catamayo",
@@ -154,43 +166,52 @@ public class Paises {
                         "Morona Santiago");
 
 
+    //constructor que añade las listas de ciudades a la lista que las almecena
     public Paises() {
-        statesItems.add(AeropuertosArgentinos);
-        statesItems.add(AeropuertosBolivianos);
-        statesItems.add(AeropuertosBrasilenios);
-        statesItems.add(AeropuertosChilenos);
-        statesItems.add(AeropuertosColombianos);
-        statesItems.add(AeropuertosEcuatorianos);
+        listasDeCiudades.add(ciudadesArgentinas);
+        listasDeCiudades.add(ciudadesBolivianas);
+        listasDeCiudades.add(ciudadesBrasilenias);
+        listasDeCiudades.add(ciudedesChilenas);
+        listasDeCiudades.add(ciudadesColombianas);
+        listasDeCiudades.add(ciudadesChilenas);
 
     }
 
+
+
+    //metodo para ingresar un nuevo pais y ciudad o una ciudad a un pais exsitente
     public void ingresarPaisYCiudad(String pais, String ciudad){
-        if(!(countryItems.contains(pais))){
-            countryItems.add(pais);
-            ObservableList<String> aeropuertoPais = FXCollections.observableArrayList();
-            statesItems.add(aeropuertoPais);
+        if(!(listaDePaises.contains(pais))){//si el pais no existe se crea uno nuevo añadiendolo a la lista de paises
+            listaDePaises.add(pais);//se añade el pais que se paso como parametro
+            //se añade una nueva lista de ciudades relacionada con el pais creado
+            ObservableList<String> ciudadesPais = FXCollections.observableArrayList();
+            listasDeCiudades.add(ciudadesPais);
         }
-        if(!(statesItems.get(countryItems.indexOf(pais)).contains(ciudad))){
-            statesItems.get(countryItems.indexOf(pais)).add(ciudad);
+        //hasta este punto simpre va a existir un pais al que insertarle la ciudad
+        //ya sea porque se creo o porque ya existia
+
+        //se verifica que la ciudad no exista previamente para evitar duplicados
+        if(!(listasDeCiudades.get(listaDePaises.indexOf(pais)).contains(ciudad))){
+            listasDeCiudades.get(listaDePaises.indexOf(pais)).add(ciudad);//se añade la ciudad a la lista de ciudades
         }
     }
 
 
 
     public ObservableList<String> getCountries() {
-        return countryItems;
+        return listaDePaises;
     }
 
     public ObservableList<String> getStates(int index) {
-        return statesItems.get(index);
+        return listasDeCiudades.get(index);
     }
 
     public String getCountry(int index){
-        return countryItems.get(index);
+        return listaDePaises.get(index);
     }
 
     public int getSize(){
-        return countryItems.size();
+        return listaDePaises.size();
     }
 
 }
