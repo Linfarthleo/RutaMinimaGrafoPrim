@@ -26,10 +26,10 @@ public class Distancias {
 
         //indice de el pais y ciudad 1
         int idp1 = paises.listaDePaises.indexOf(pais1);
-        int idc1 = paises.getStates(idp1).indexOf(c1);
+        int idc1 = paises.getCiudades(idp1).indexOf(c1);
         //indice de el pais y ciudad 2
         int idp2 = paises.listaDePaises.indexOf(pais2);
-        int idc2 = paises.getStates(idp2).indexOf(c2);
+        int idc2 = paises.getCiudades(idp2).indexOf(c2);
 
         //si son iguales retorna 0 y se termina
 

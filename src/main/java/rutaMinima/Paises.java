@@ -196,18 +196,22 @@ public class Paises {
 
 
 
-    public ObservableList<String> getCountries() {
+    public ObservableList<String> getListaDePaises() {
         return listaDePaises;
     }
 
-    public ObservableList<String> getStates(int index) {
+
+    //Metodo que obtiene las ciudades de un pais pasandole el indice que las relaciona
+    public ObservableList<String> getCiudades(int index) {
         return listasDeCiudades.get(index);
     }
 
+    //getter del atributo listaDePaises
     public String getCountry(int index){
         return listaDePaises.get(index);
     }
 
+    //metodo para obtener el tamaño de la lista de paises
     public int getSize(){
         return listaDePaises.size();
     }

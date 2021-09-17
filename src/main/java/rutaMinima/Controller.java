@@ -1,7 +1,6 @@
 package rutaMinima;
 
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,7 +9,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-import javax.swing.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -106,7 +104,7 @@ public class Controller implements Initializable {
         cbCiudad.setDisable(false);
         for (int i=0;i< listaPaises.getSize();i++){//busca las ciudades del pais correspondiente
             if(cbPais.getValue().equals(listaPaises.getCountry(i))){
-                cbCiudad.setItems(listaPaises.getStates(i));//llena el combo box de paises
+                cbCiudad.setItems(listaPaises.getCiudades(i));//llena el combo box de paises
             }
         }
     }
@@ -202,7 +200,7 @@ public class Controller implements Initializable {
             listaPaises.ingresarPaisYCiudad(ingresarPaisTextField.getText(), ingresarCiudadTextField.getText());
             rutasIngresadasTextArea.appendText("País: " +ingresarPaisTextField.getText()+" --> Ciudad: "+ ingresarCiudadTextField.getText()+"\n");
         }
-        cbPais.setItems(listaPaises.getCountries());
+        cbPais.setItems(listaPaises.getListaDePaises());
         ingresarPaisTextField.setText("");
         ingresarCiudadTextField.setText("");
     }
@@ -263,7 +261,7 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
             listaPaises=new Paises();
-            cbPais.setItems(listaPaises.getCountries());
+            cbPais.setItems(listaPaises.getListaDePaises());
             selecionados=new ArrayList<>();
             selecionadosP=new ArrayList<>();
             distanciasGeneradas =new Distancias();
