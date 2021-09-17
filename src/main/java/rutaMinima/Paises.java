@@ -195,7 +195,7 @@ public class Paises {
     }
 
 
-
+    //getter del atributo listaDePaises
     public ObservableList<String> getListaDePaises() {
         return listaDePaises;
     }
@@ -206,7 +206,7 @@ public class Paises {
         return listasDeCiudades.get(index);
     }
 
-    //getter del atributo listaDePaises
+    //metodo para obtener el pais dado el indice
     public String getCountry(int index){
         return listaDePaises.get(index);
     }
