@@ -241,7 +241,8 @@ public class Controller implements Initializable {
             for(j=1;j<=nodes;j++)
             {
                 //genera o  obtiene la distancia
-                p.costo[i][j]=distanciasGeneradas.obtenerDistancia(listaPaises, selecionadosP.get(i-1), seleccionados.get(i-1),selecionadosP.get(j-1), seleccionados.get(j-1));
+                p.costo[i][j]=distanciasGeneradas.obtenerDistancia(listaPaises, selecionadosP.get(i-1),
+                        seleccionados.get(i-1),selecionadosP.get(j-1), seleccionados.get(j-1));
                 System.out.println(p.costo[i][j]);
 
                 if(p.costo[i][j]==0)//si la distancia es 0 asigna infinito
