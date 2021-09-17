@@ -20,6 +20,8 @@ public class Controller implements Initializable {
     private ArrayList<String> selecionadosP;//Alamcena los paises seleccionados(se relaciona con la ciudades mediante el indice)
     private Distancias distanciasGeneradas;
 
+    //Inicialización e implementación de todos los objetos de cada interfaz
+
     @FXML private ComboBox<String> cbPais;
     @FXML private ComboBox<String> cbCiudad;
     @FXML private Button btnInsertar;
@@ -39,7 +41,7 @@ public class Controller implements Initializable {
     @FXML private TextField ingresarCiudadTextField;
     @FXML private TextArea rutasIngresadasTextArea;
 
-    //boton para salir
+    //boton para salir, el cual genera un mensaje de alerta para confirmar que realmente se desea salir del programa
     public void onExitButtonClicked(MouseEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Salir");
@@ -50,13 +52,15 @@ public class Controller implements Initializable {
             System.exit(0);
         }
     }
-
+//Método para navegación entre pestañas, para le módulo de seleccionar Ciudades
     public void onSeleccionarCiudadesButtonClicked(MouseEvent event) {
+        //Condicional que ocultara el modulo si ya esta abierto
         if (mainPanel.isVisible()&&seleccionarCiudadesPanel.isVisible()) {
             mainPanel.setVisible(false);
             arrowUno.setVisible(false);
             return;
         }
+        //Hace visible al pane de seleccionar ciudades
         mainPanel.setVisible(true);
         seleccionarCiudadesPanel.setVisible(true);
         arrowUno.setVisible(true);
@@ -65,8 +69,9 @@ public class Controller implements Initializable {
         rutasOptimasPanel.setVisible(false);
         arrowTres.setVisible(false);
     }
-
+    //Método para navegación entre pestañas, para le módulo de ingresar Ciudades
     public void onIngresarCiudadesButtonClicked(MouseEvent event) {
+        //Condicional que ocultara el modulo si ya esta abierto
         if (mainPanel.isVisible()&&ingresarCiudadesPanel.isVisible()) {
             mainPanel.setVisible(false);
             arrowDos.setVisible(false);
@@ -75,12 +80,16 @@ public class Controller implements Initializable {
         mainPanel.setVisible(true);
         seleccionarCiudadesPanel.setVisible(false);
         arrowUno.setVisible(false);
+        //Hace visible al pane de Ingresar Ciudades
         ingresarCiudadesPanel.setVisible(true);
         arrowDos.setVisible(true);
         rutasOptimasPanel.setVisible(false);
         arrowTres.setVisible(false);
     }
+    //Método para navegación entre pestañas, para le módulo de mostrar rutas optimas
+
     public void onRutasOptimasButtonClicked(MouseEvent event) {
+        //Condicional que ocultara el modulo si ya esta abierto
         if (mainPanel.isVisible()&&rutasOptimasPanel.isVisible()) {
             mainPanel.setVisible(false);
             arrowTres.setVisible(false);
@@ -91,6 +100,7 @@ public class Controller implements Initializable {
         arrowUno.setVisible(false);
         ingresarCiudadesPanel.setVisible(false);
         arrowDos.setVisible(false);
+        //Hace visible al pane de RutasOptimas
         rutasOptimasPanel.setVisible(true);
         arrowTres.setVisible(true);
     }
@@ -190,15 +200,20 @@ public class Controller implements Initializable {
 
     //Parte de insertar ciudades
     public void onIngresarPaisYCiudadClicked(ActionEvent event){
+        //Condicional para verificar que no se ingresen datos vacios, si no emitirá una alerta para que se ingrese datos
         if(ingresarPaisTextField.getText()==""||ingresarCiudadTextField.getText()==""){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Ingrese Datos");
             alert.showAndWait();
         }else {
+            //Si no se agrega lo que se haya escrito en Pais y ciudad en un arreglo con la ayuda del metodo ingresarPaisYCiudad
             listaPaises.ingresarPaisYCiudad(ingresarPaisTextField.getText(), ingresarCiudadTextField.getText());
+           //Imprime en un TextArea el pais y ciudad que se agrego al arreglo y por ende al combobox de seleccion
             rutasIngresadasTextArea.appendText("País: " +ingresarPaisTextField.getText()+" --> Ciudad: "+ ingresarCiudadTextField.getText()+"\n");
         }
+        //Se debe actualizar los combo box de módulo seleccionar paises para que la eleccion se haga con normalidad y los datos recien ingresados
         cbPais.setItems(listaPaises.getListaDePaises());
+        //Y a su vez se debe reiniciar los cuadros de texto para que se vacien , como esta a continuacion
         ingresarPaisTextField.setText("");
         ingresarCiudadTextField.setText("");
     }
@@ -207,7 +222,8 @@ public class Controller implements Initializable {
 
     //boton conectar ciudades
     public void onConectarCiudadesButtonClicked(ActionEvent event){
-
+        //si se ha seleccinado las ciudades inmediatamente despues de presionar el boton, tambien cambiara de interfaz
+        //al modulo de rutas optimas(lo hace visible y los demas se los oculta), que es ahí donde se mostraran los resultados
         if(!seleccionados.isEmpty()){
             mainPanel.setVisible(true);
             seleccionarCiudadesPanel.setVisible(false);
@@ -256,7 +272,7 @@ public class Controller implements Initializable {
 
     }
 
-    //inicializar
+    //inicializar arreglos y listas
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
             listaPaises=new Paises();
