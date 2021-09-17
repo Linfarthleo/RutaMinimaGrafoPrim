@@ -37,7 +37,7 @@ public class Distancias {
             return 0;
         }
         //creacion de la distancia
-        int metros=(int)(Math.random()*(10000-200+1)+200);
+        int metros=(int)(Math.random()*(10000-200+1)+200);//
         int [] distancia ={idp1,idc1,idp2,idc2,metros};//creacion de arreglo con los datos
 
         for (int[] x:listaDeDistancias) {//buscar si ya existe la distancia

@@ -55,7 +55,8 @@ public class AlgPrim {
             if(this.esVisitado[minpos_i]==0 || this.esVisitado[minpos_j]==0)//si no exite enlace
             {
                 //almacena en R las rutas
-                r+=(/*"Visitamos nodo \t"+ciudades.get(num_edges-1)+"\t */"Conectar "+ciudades.get(a-1)+" con "+ciudades.get(b-1)+" (distancia:"+min+")\n");
+                r+=(/*"Visitamos nodo \t"+ciudades.get(num_edges-1)+"\t */"Conectar "+ciudades.get(a-1)+" con "
+                        +ciudades.get(b-1)+" (distancia:"+min+")\n");
                 System.out.println(r);
                 this.minimo_costo=this.minimo_costo+min;
                 num_edges=num_edges+1;

@@ -16,8 +16,8 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     private Paises listaPaises;//Objeto de la calse paises
-    private ArrayList<String> selecionados;//Almacena las ciudades Selecionadas
-    private ArrayList<String> selecionadosP;//Alamcena los paises selecionados(se relaciona con la ciudades mediante el indice)
+    private ArrayList<String> seleccionados;//Almacena las ciudades Selecionadas
+    private ArrayList<String> selecionadosP;//Alamcena los paises seleccionados(se relaciona con la ciudades mediante el indice)
     private Distancias distanciasGeneradas;
 
     @FXML private ComboBox<String> cbPais;
@@ -111,24 +111,22 @@ public class Controller implements Initializable {
 
     //cuando se usa el combo box de ciudad
     public void onActionCBCiudad(ActionEvent event){
-        btnInsertar.setDisable(false);//se habilita el boton de insertar una vez selecionada una ciudad
-
+        //se habilita el boton de selecionar una vez selecionada una ciudad
+        btnInsertar.setDisable(false);
     }
 /*
     public void onBtnVaciarClicked(MouseEvent event){
 
         System.out.println("Hola");
         selecionadosP.removeAll(selecionadosP);
-        selecionados.removeAll(selecionados);
+        seleccionados.removeAll(seleccionados);
         taCiudades.setText("");
 
     }*/
 
-    //boton insertar
+    //boton selecionar
     public void onBtnInsertarClicked(MouseEvent event){
         btnEliminar.setDisable(false);//una ves que se inserta una ciudad se habilita el boton eliminar
-
-
         String str = cbCiudad.getValue();//obtiene la ciudad seleccionada
         //System.out.println(str);
         if(str==null){//si no se ha selecionado una ciudad imprime un mensaje de error
@@ -137,12 +135,11 @@ public class Controller implements Initializable {
             alert.showAndWait();
         }else {
             if (comprobarExistencia(str)) {//comprueba si hay valores repetidos
-                selecionadosP.add(cbPais.getValue());//añade los paises selecionados a una lista
-                selecionados.add(str);//añade las ciudades selecionadas a una lista
+                selecionadosP.add(cbPais.getValue());//añade los paises seleccionados a una lista
+                seleccionados.add(str);//añade las ciudades selecionadas a una lista
                 String ac = "";//acumulador
-                for (String x : selecionados) {
+                for (String x : seleccionados) {
                     ac += x + "\n";//recorre la lista de ciudades y añade los nombre al string ac
-
                 }
                 taCiudades.setText(ac);//Escribe el string ac en el Text Area
             } else {
@@ -151,7 +148,6 @@ public class Controller implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("Ciudad Duplicada");
                 alert.showAndWait();
-
             }
             //desabilita el boton insertar hasta que se escoja otra ciudad
             btnInsertar.setDisable(true);
@@ -161,8 +157,10 @@ public class Controller implements Initializable {
     //metodo para comprobar la existencia dentro de la lista
     public boolean comprobarExistencia(String str){
 
-        for (String x:selecionados){
-                if(x.equals(str)){//secorre la lista de ciudades selecionadas retorna false si se encuentra
+        for (String x: seleccionados){
+                if(x.equals(str)){
+                    //recorre la lista de ciudades selecionadas
+                    //retorna false si se encuentra
                 return false;
             }
         }
@@ -173,10 +171,10 @@ public class Controller implements Initializable {
     public void onBtnEliminarClicked(MouseEvent event){
         String str = cbCiudad.getValue();//obtinene el string de la ciudad a eliminar
         if(!comprobarExistencia(str)){//comprueba que exista
-            selecionadosP.remove(selecionados.indexOf(str));//remueve la posicion del pais selecionado
-            selecionados.remove(str);//remueve la ciudad selecionado
+            selecionadosP.remove(seleccionados.indexOf(str));//remueve la posicion del pais selecionado
+            seleccionados.remove(str);//remueve la ciudad selecionado
             String ac = "";
-            for (String x : selecionados) {
+            for (String x : seleccionados) {
                 ac += x + "\n";
 
             }
@@ -210,7 +208,7 @@ public class Controller implements Initializable {
     //boton conectar ciudades
     public void onConectarCiudadesButtonClicked(ActionEvent event){
 
-        if(!selecionados.isEmpty()){
+        if(!seleccionados.isEmpty()){
             mainPanel.setVisible(true);
             seleccionarCiudadesPanel.setVisible(false);
             arrowUno.setVisible(false);
@@ -231,19 +229,19 @@ public class Controller implements Initializable {
     //metodo para llenar la matriz de costos
     public void matrizCostos(){
 
-        AlgPrim p = new AlgPrim (selecionados.size());//Objeto AlgPrim
+        AlgPrim p = new AlgPrim (seleccionados.size());//Objeto AlgPrim
         //Distancias distanciasGeneradas =new Distancias();//Objeto distancias
         int nodes,i,j;
 
         //asigna el nuemro de nodos que es el numero de ciudades selecionadas
-        nodes=selecionados.size();
+        nodes= seleccionados.size();
 
         //Ingresar los Pesos o Costos a la Matriz de Adyacencia etiquetada
         for(i=1;i<=nodes;i++)
             for(j=1;j<=nodes;j++)
             {
                 //genera o  obtiene la distancia
-                p.costo[i][j]=distanciasGeneradas.obtenerDistancia(listaPaises, selecionadosP.get(i-1),selecionados.get(i-1),selecionadosP.get(j-1),selecionados.get(j-1));
+                p.costo[i][j]=distanciasGeneradas.obtenerDistancia(listaPaises, selecionadosP.get(i-1), seleccionados.get(i-1),selecionadosP.get(j-1), seleccionados.get(j-1));
                 System.out.println(p.costo[i][j]);
 
                 if(p.costo[i][j]==0)//si la distancia es 0 asigna infinito
@@ -253,7 +251,7 @@ public class Controller implements Initializable {
         p.esVisitado[1]=1;
             //coloca el el text area la forma en la que se deben conectar las
         //ciudades para conseguir el arbol de expansion minima
-        cuadroRutas.setText(p.calc(nodes,selecionadosP,selecionados));
+        cuadroRutas.setText(p.calc(nodes,selecionadosP, seleccionados));
 
     }
 
@@ -262,7 +260,7 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
             listaPaises=new Paises();
             cbPais.setItems(listaPaises.getListaDePaises());
-            selecionados=new ArrayList<>();
+            seleccionados =new ArrayList<>();
             selecionadosP=new ArrayList<>();
             distanciasGeneradas =new Distancias();
 
