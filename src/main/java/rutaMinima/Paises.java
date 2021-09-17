@@ -11,8 +11,6 @@ public class Paises {
     //Observable list permite que las listas puedan ser usadas dentro de la interfaz de view.fxml
     //un arraylist de Observablelist que almacena listas de las ciudades de cada pais que poseen aeropuertos
     ArrayList<ObservableList<String>> listasDeCiudades = new ArrayList<>();
-
-    //primero se crean los paises con las ciudades que apareceran por defecto
     //lista de paises
     ObservableList<String> listaDePaises =
             FXCollections.observableArrayList(
@@ -24,125 +22,130 @@ public class Paises {
                     "Ecuador"
 
             );
-    //lista de ciudades argentinas
-    ObservableList<String> ciudadesArgentinas =
-            FXCollections.observableArrayList(
-                    "Buenos Aires",
-                    "Catamarca",
-                    "Chaco",
-                    "Chubut",
-                    "Córdoba",
-                    "Corrientes",
-                    "Entre Ríos",
-                    "Formosa",
-                    "Jujuy",
-                    "La Pampa",
-                    "La Rioja",
-                    "Mendoza",
-                    "Misiones",
-                    "Neuquén",
-                    "Río Negro",
-                    "Salta",
-                    "San Juan",
-                    "San Luis",
-                    "Santa Cruz",
-                    "Santa Fe",
-                    "Santiago del Estero",
-                    "Tierra del Fuego",
-                    "Tucumán"
-            );
-    //lista de ciudades argentinas
-    ObservableList<String> ciudadesColombianas =
-            FXCollections.observableArrayList(
 
-                    "Bogotá",
-                    "Medellin",
-                    "Cali",
-                    "Pereira",
-                    "Barranquilla",
-                    "Cartagena",
-                    "Cucuta",
-                    "Armenia",
-                    "Yopal",
-                    "Bucaramanga",
-                    "Santa Marta",
-                    "San Andrés",
-                    "Monteria",
-                    "Valledupar",
-                    "Medellin Herrera",
-                    "Pasto",
-                    "Neiva"
+    //constructor
+    public Paises() {
+        //primero se crean los paises con las ciudades que apareceran por defecto
 
-            );
-    //lista de ciudades argentinas
-    ObservableList<String> ciudadesBolivianas =
-            FXCollections.observableArrayList(
-                    "Beni",
-                    "Chuquisaca",
-                    "Cochabamba",
-                    "La Paz",
-                    "Oruro",
-                    "Pando",
-                    "Potosí",
-                    "Santa Cruz",
-                    "Tarija"
-            );
-    //lista de ciudades argentinas
-    ObservableList<String> ciudadesBrasilenias =
-            FXCollections.observableArrayList(
-                    "Acre",
-                    "Alagoas",
-                    "Amap\u00E1",
-                    "Amazonas",
-                    "Bahia",
-                    "Cear\u00E1",
-                    "Esp\u00EDrito Santo",
-                    "Goi\u00E1s",
-                    "Maranh\u00E3o",
-                    "Mato Grosso",
-                    "Mato Grosso do Sul",
-                    "Minas Gerais",
-                    "Par\u00E1",
-                    "Para\u00EDba",
-                    "Paran\u00E1",
-                    "Pernambuco",
-                    "Piau\u00ED",
-                    "Rio de Janeiro",
-                    "Rio Grande do Norte",
-                    "Rio Grande do Sul",
-                    "Rond\u00F4nia",
-                    "Roraima",
-                    "Santa Catarina",
-                    "S\u00E3o Paulo",
-                    "Sergipe",
-                    "Tocantins"
-            );
-    //lista de ciudades argentinas
-    ObservableList<String> ciudedesChilenas =
-            FXCollections.observableArrayList(
-                    "Antofagasta",
-                    "Arica",
-                    "Balmaceda",
-                    "Calama",
-                    "Caldera",
-                    "Dalcahue",
-                    "Freire",
-                    "Iquique",
-                    "Isla de Pascua",
-                    "La Serena",
-                    "Mariquina",
-                    "Natales",
-                    "Osorno",
-                    "Puerto Montt",
-                    "Punta Arenas",
-                    "Santiago",
-                    "Talcahuano"
+        //lista de ciudades argentinas
+        ObservableList<String> ciudadesArgentinas =
+                FXCollections.observableArrayList(
+                        "Buenos Aires",
+                        "Catamarca",
+                        "Chaco",
+                        "Chubut",
+                        "Córdoba",
+                        "Corrientes",
+                        "Entre Ríos",
+                        "Formosa",
+                        "Jujuy",
+                        "La Pampa",
+                        "La Rioja",
+                        "Mendoza",
+                        "Misiones",
+                        "Neuquén",
+                        "Río Negro",
+                        "Salta",
+                        "San Juan",
+                        "San Luis",
+                        "Santa Cruz",
+                        "Santa Fe",
+                        "Santiago del Estero",
+                        "Tierra del Fuego",
+                        "Tucumán"
+                );
+        //lista de ciudades argentinas
+        ObservableList<String> ciudadesColombianas =
+                FXCollections.observableArrayList(
 
-            );
-    //lista de ciudades argentinas
-    ObservableList<String> ciudadesChilenas =
-            FXCollections.observableArrayList(
-                    "Andoas (Pastaza)",
+                        "Bogotá",
+                        "Medellin",
+                        "Cali",
+                        "Pereira",
+                        "Barranquilla",
+                        "Cartagena",
+                        "Cucuta",
+                        "Armenia",
+                        "Yopal",
+                        "Bucaramanga",
+                        "Santa Marta",
+                        "San Andrés",
+                        "Monteria",
+                        "Valledupar",
+                        "Medellin Herrera",
+                        "Pasto",
+                        "Neiva"
+
+                );
+        //lista de ciudades argentinas
+        ObservableList<String> ciudadesBolivianas =
+                FXCollections.observableArrayList(
+                        "Beni",
+                        "Chuquisaca",
+                        "Cochabamba",
+                        "La Paz",
+                        "Oruro",
+                        "Pando",
+                        "Potosí",
+                        "Santa Cruz",
+                        "Tarija"
+                );
+        //lista de ciudades argentinas
+        ObservableList<String> ciudadesBrasilenias =
+                FXCollections.observableArrayList(
+                        "Acre",
+                        "Alagoas",
+                        "Amap\u00E1",
+                        "Amazonas",
+                        "Bahia",
+                        "Cear\u00E1",
+                        "Esp\u00EDrito Santo",
+                        "Goi\u00E1s",
+                        "Maranh\u00E3o",
+                        "Mato Grosso",
+                        "Mato Grosso do Sul",
+                        "Minas Gerais",
+                        "Par\u00E1",
+                        "Para\u00EDba",
+                        "Paran\u00E1",
+                        "Pernambuco",
+                        "Piau\u00ED",
+                        "Rio de Janeiro",
+                        "Rio Grande do Norte",
+                        "Rio Grande do Sul",
+                        "Rond\u00F4nia",
+                        "Roraima",
+                        "Santa Catarina",
+                        "S\u00E3o Paulo",
+                        "Sergipe",
+                        "Tocantins"
+                );
+        //lista de ciudades argentinas
+        ObservableList<String> ciudedesChilenas =
+                FXCollections.observableArrayList(
+                        "Antofagasta",
+                        "Arica",
+                        "Balmaceda",
+                        "Calama",
+                        "Caldera",
+                        "Dalcahue",
+                        "Freire",
+                        "Iquique",
+                        "Isla de Pascua",
+                        "La Serena",
+                        "Mariquina",
+                        "Natales",
+                        "Osorno",
+                        "Puerto Montt",
+                        "Punta Arenas",
+                        "Santiago",
+                        "Talcahuano"
+
+                );
+        //lista de ciudades argentinas
+        ObservableList<String> ciudadesChilenas =
+                FXCollections.observableArrayList(
+                        "Andoas (Pastaza)",
                         "Catamayo",
                         "Cuenca",
                         "Cumbaratza(Zamora)",
@@ -162,9 +165,7 @@ public class Paises {
                         "Quito",
                         "Morona Santiago");
 
-
-    //constructor que añade las listas de ciudades a la lista que las almecena
-    public Paises() {
+        //añade las listas de ciudades a la lista que las almecena
         listasDeCiudades.add(ciudadesArgentinas);
         listasDeCiudades.add(ciudadesBolivianas);
         listasDeCiudades.add(ciudadesBrasilenias);
