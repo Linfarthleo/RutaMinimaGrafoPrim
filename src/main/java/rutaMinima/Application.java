@@ -4,6 +4,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -20,7 +21,7 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
         Parent fxmlLoader = FXMLLoader.load(getClass().getResource("inicio.fxml"));
-        //evento en el moused pressed que permite mover cuando este presioando el mouse en cualquier parte del menu
+        //evento en el moused pressed que permite mover cuando esté presionado el mouse en cualquier parte del menu
         fxmlLoader.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -37,10 +38,11 @@ public class Application extends javafx.application.Application {
             }
         });
 
-        //Características importantes de la intefaz padre, la cual contiene a las demas interfaces
+        //Características importantes de la interfaz padre, la cual contiene a las demás interfaces
         Scene scene = new Scene(fxmlLoader);
         stage.initStyle(StageStyle.TRANSPARENT);
-        stage.setTitle("Rutas Mínimas - Grafos");
+        stage.setTitle("INICIO - Calculadora de Rutas Mínimas Entre Ciudades");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("images/icons8_world_map.png")));
         scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
