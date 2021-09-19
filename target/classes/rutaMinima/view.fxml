@@ -12,6 +12,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="675.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rutaMinima.Controller">
@@ -20,17 +21,29 @@
          <children>
             <HBox prefHeight="71.0" prefWidth="525.0" styleClass="root3" stylesheets="@style.css" AnchorPane.bottomAnchor="-14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Separator prefHeight="3.0" prefWidth="57.0" visible="false" />
-                  <ImageView fitHeight="48.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons8_world_map.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets top="5.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Separator prefHeight="3.0" prefWidth="57.0" visible="false" />
-                  <JFXButton fx:id="ingresarButton" onMouseClicked="#onIngresarCiudadesButtonClicked" prefHeight="71.0" prefWidth="144.0" text="Ingresar Ciudades" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Separator prefHeight="4.0" prefWidth="16.0" visible="false" />
+                  <VBox prefHeight="71.0" prefWidth="52.0">
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="46.0" onMouseClicked="#onInicioImageClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/icons8_world_map.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="81.0" text="Inicio" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Verdana Bold" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Separator prefHeight="71.0" prefWidth="69.0" visible="false" />
+                  <JFXButton fx:id="ingresarButton" focusTraversable="false" onMouseClicked="#onIngresarCiudadesButtonClicked" prefHeight="71.0" prefWidth="144.0" text="Ingresar Ciudades" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="51.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -42,7 +55,7 @@
                         <Font name="Verdana Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="seleccionarButton" alignment="CENTER" onMouseClicked="#onSeleccionarCiudadesButtonClicked" prefHeight="71.0" prefWidth="153.0" text="Seleccionar Ciudades" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <JFXButton fx:id="seleccionarButton" alignment="CENTER" focusTraversable="false" onMouseClicked="#onSeleccionarCiudadesButtonClicked" prefHeight="71.0" prefWidth="153.0" text="Seleccionar Ciudades" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="53.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -54,7 +67,7 @@
                         <Font name="Verdana Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="rutasButton" alignment="CENTER" onMouseClicked="#onRutasOptimasButtonClicked" prefHeight="71.0" prefWidth="156.0" text="Rutas Optimas" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <JFXButton fx:id="rutasButton" alignment="CENTER" focusTraversable="false" onMouseClicked="#onRutasOptimasButtonClicked" prefHeight="71.0" prefWidth="156.0" text="Rutas Optimas" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="57.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -66,22 +79,29 @@
                         <Font name="Verdana Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <Separator prefHeight="3.0" prefWidth="57.0" visible="false" />
-                  <JFXButton onMouseClicked="#onExitButtonClicked" prefHeight="71.0" prefWidth="54.0" text=" ">
+                  <Separator prefHeight="106.0" prefWidth="37.0" visible="false" />
+                  <JFXButton focusTraversable="false" onMouseClicked="#onExitButtonClicked" prefHeight="71.0" prefWidth="45.0" text=" ">
                      <graphic>
-                        <ImageView fitHeight="57.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="57.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/icon_exit.png" />
                            </image>
                         </ImageView>
                      </graphic>
+                     <HBox.margin>
+                        <Insets right="-8.0" />
+                     </HBox.margin>
                   </JFXButton>
-                  <Separator prefHeight="6.0" prefWidth="8.0" visible="false" />
                </children>
             </HBox>
          </children></AnchorPane>
       <AnchorPane fx:id="mainPanel" layoutX="17.0" layoutY="115.0" prefHeight="467.0" prefWidth="675.0" styleClass="root3" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
+            <Label layoutX="127.0" layoutY="177.0" prefHeight="84.0" prefWidth="422.0" text="Bienvenid@!" textFill="WHITE">
+               <font>
+                  <Font name="Rockwell" size="70.0" />
+               </font>
+            </Label>
             <AnchorPane fx:id="seleccionarCiudadesPanel" prefHeight="400.0" prefWidth="601.0" styleClass="root" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <children>
                   <AnchorPane layoutX="38.0" layoutY="66.0" prefHeight="287.0" prefWidth="290.0" style="-fx-background-color: #1a2d4c;" styleClass="root3" stylesheets="@style.css">
@@ -128,7 +148,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="ingresarCiudadesPanel" prefHeight="400.0" prefWidth="601.0" styleClass="root2" stylesheets="@style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <AnchorPane fx:id="ingresarCiudadesPanel" prefHeight="400.0" prefWidth="601.0" styleClass="root2" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <children>
                   <AnchorPane layoutX="56.0" layoutY="97.0" prefHeight="184.0" prefWidth="273.0" style="-fx-background-color: #1a2d4c;" styleClass="root3" stylesheets="@style.css">
                      <children>
@@ -147,16 +167,16 @@
                               <Font name="Verdana Bold" size="13.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="ingresarPaisTextField" alignment="CENTER" layoutX="123.0" layoutY="62.0" prefHeight="25.0" prefWidth="109.0" promptText="Ingrese País" />
-                        <TextField fx:id="ingresarCiudadTextField" alignment="CENTER" layoutX="123.0" layoutY="95.0" prefHeight="25.0" prefWidth="109.0" promptText="Ingrese Ciudad" />
-                        <JFXButton fx:id="btn_insertar" layoutX="160.0" layoutY="147.0" onAction="#onIngresarPaisYCiudadClicked" style="-fx-background-color: white;" text="Insertar">
+                        <TextField fx:id="ingresarPaisTextField" alignment="CENTER" focusTraversable="false" layoutX="123.0" layoutY="62.0" prefHeight="25.0" prefWidth="109.0" promptText="Ingrese País" />
+                        <TextField fx:id="ingresarCiudadTextField" alignment="CENTER" focusTraversable="false" layoutX="123.0" layoutY="95.0" prefHeight="25.0" prefWidth="109.0" promptText="Ingrese Ciudad" />
+                        <JFXButton fx:id="btn_insertar" focusTraversable="false" layoutX="160.0" layoutY="147.0" onAction="#onIngresarPaisYCiudadClicked" style="-fx-background-color: white;" text="Insertar">
                            <font>
                               <Font name="Verdana Bold" size="12.0" />
                            </font>
                         </JFXButton>
                      </children>
                   </AnchorPane>
-                  <TextArea fx:id="rutasIngresadasTextArea" editable="false" layoutX="372.0" layoutY="97.0" prefHeight="184.0" prefWidth="252.0" promptText="Lista Vacia" />
+                  <TextArea fx:id="rutasIngresadasTextArea" editable="false" focusTraversable="false" layoutX="372.0" layoutY="97.0" prefHeight="184.0" prefWidth="252.0" promptText="Lista Vacia" />
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="372.0" layoutY="64.0" prefHeight="18.0" prefWidth="252.0" styleClass="root3" stylesheets="@style.css" text="Ciudades Ingresadas" textAlignment="RIGHT" textFill="WHITE">
                      <font>
                         <Font name="Verdana Bold" size="14.0" />
@@ -180,7 +200,7 @@
             <Image url="@images/collapse_arrow.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowDos" fitHeight="51.0" fitWidth="54.0" layoutX="181.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="arrowDos" fitHeight="51.0" fitWidth="54.0" layoutX="181.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@images/collapse_arrow.png" />
          </image>

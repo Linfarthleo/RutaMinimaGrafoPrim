@@ -21,21 +21,20 @@ public class InicioController {
     //atributos para arrastrar ventana
     private double xOffset;
     private double yOffset;
-    //Cargar nueva ventana
+    //Cargar nueva ventana de la aplicacion
 
-    public void loadStage(String url, Event event){
-        try{
+    public void loadStage(String url, Event event) {
+        //para mostrar la ventana de la aplicación
+        try {
+            //Se crea una nueva ventana cuando se de lugar al evento, en este caso al hacer click, con sus respectivos atributos
             Object eventSource = event.getSource();
             Node sourceAsNode = (Node) eventSource;
             Scene oldScene = sourceAsNode.getScene();
             Window window = oldScene.getWindow();
             Stage stage = (Stage) window;
-            stage.hide();
-
+            stage.hide();//oculta la ventana actual
+            //Se crea la ventana e inicializa con sus atributos
             Parent root = FXMLLoader.load(getClass().getResource(url));
-            //evento en el moused pressed que permite mover cuando este presioando el mouse en cualquier parte del menu
-
-
             //Características importantes de la intefaz padre, la cual contiene a las demas interfaces
             Scene scene = new Scene(root);
             Stage newStage = new Stage();
@@ -43,7 +42,7 @@ public class InicioController {
             scene.setFill(Color.TRANSPARENT);
             newStage.setScene(scene);
             newStage.show();
-
+            //inicializar evento en el moused pressed que permite mover cuando este presionado el mouse en cualquier parte del menu
             root.setOnMousePressed(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
@@ -51,20 +50,21 @@ public class InicioController {
                     yOffset = event.getSceneY();
                 }
             });
-
+            //evento que permite arrastrar por la pantalla al anchor pane menu
             root.setOnMouseDragged(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    newStage.setX(event.getScreenX()-xOffset);
-                    newStage.setY(event.getScreenY()- yOffset);
+                    newStage.setX(event.getScreenX() - xOffset);
+                    newStage.setY(event.getScreenY() - yOffset);
                 }
             });
-        }catch (IOException ex){
-            System.out.println("Se ha producido el error: "+ex);
+            //Si se produce un error que se lo imprima en la consola
+        } catch (IOException ex) {
+            System.out.println("Se ha producido el error: " + ex);
         }
     }
 
-    public void onIngresarInicioClicked(MouseEvent event){
+    public void onIngresarInicioClicked(MouseEvent event) {
         loadStage("view.fxml", event);
     }
 

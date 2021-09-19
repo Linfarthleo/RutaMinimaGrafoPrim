@@ -1,9 +1,10 @@
 package rutaMinima;
+
 import java.util.*;
 import java.util.Scanner;
+
 /**
- *
- * @author Emilio Montalvo,Fernando Asitimbaya,Karla Vivas
+ * @author Emilio Montalvo,Leonardo Asitimbaya,Karla Vivas
  */
 /*
 Prim (N)
@@ -25,44 +26,43 @@ public class AlgPrim {
     public int minimo_costo;
 
     public AlgPrim(int n) {
-        costo = new int[n+1][n+1];
-        esVisitado =new int[n+1];
+        costo = new int[n + 1][n + 1];
+        esVisitado = new int[n + 1];
     }
 
-    public String calc(int n,ArrayList<String> paises,ArrayList<String> ciudades)
-    {
-        int flag[] = new int[n+1];//Control de vertices visitados
-        int i,j,min=999,num_edges=1,a=1,b=1,minpos_i=1,minpos_j=1;
+    public String calc(int n, ArrayList<String> paises, ArrayList<String> ciudades) {
+        int flag[] = new int[n + 1];//Control de vertices visitados
+        int i, j, min = 999, num_edges = 1, a = 1, b = 1, minpos_i = 1, minpos_j = 1;
         //num_eddges es donde inicia
         //a origen de los veritices
         //b destino de los vertices
         //minpos minima posicion en i y j
 
-        String r="";//string donde se almacenara las rutas
+        String r = "";//string donde se almacenara las rutas
 
-        while(num_edges < n)//mientras el primer nodo sea menor al total de vertices recorrido
+        while (num_edges < n)//mientras el primer nodo sea menor al total de vertices recorrido
         {
 
-            for(i=1,min=999999;i<=n;i++)//no debe sobrepasas infinito ni el numero de vetices
-                for(j=1;j<=n;j++)
-                    if(this.costo[i][j]<min)
-                        if(this.esVisitado[i]!=0)//si este nodo visitado es diferente a 0(no hay ciclo)
+            for (i = 1, min = 999999; i <= n; i++)//no debe sobrepasas infinito ni el numero de vetices
+                for (j = 1; j <= n; j++)
+                    if (this.costo[i][j] < min)
+                        if (this.esVisitado[i] != 0)//si este nodo visitado es diferente a 0(no hay ciclo)
                         {
-                            min=this.costo[i][j];//minimo toma el valor del costo
-                            a=minpos_i=i;//toma minima poscion de i
-                            b=minpos_j=j;//toma minima poscion de j
+                            min = this.costo[i][j];//minimo toma el valor del costo
+                            a = minpos_i = i;//toma minima poscion de i
+                            b = minpos_j = j;//toma minima poscion de j
                         }
-            if(this.esVisitado[minpos_i]==0 || this.esVisitado[minpos_j]==0)//si no exite enlace
+            if (this.esVisitado[minpos_i] == 0 || this.esVisitado[minpos_j] == 0)//si no exite enlace
             {
                 //almacena en R las rutas
-                r+=(/*"Visitamos nodo \t"+ciudades.get(num_edges-1)+"\t */"Conectar "+ciudades.get(a-1)+" con "
-                        +ciudades.get(b-1)+" (distancia:"+min+")\n");
+                r += (/*"Visitamos nodo \t"+ciudades.get(num_edges-1)+"\t */"Conectar " + ciudades.get(a - 1) + " con "
+                        + ciudades.get(b - 1) + " (distancia:" + min + ")\n");
                 System.out.println(r);
-                this.minimo_costo=this.minimo_costo+min;
-                num_edges=num_edges+1;
-                this.esVisitado[b]=1;
+                this.minimo_costo = this.minimo_costo + min;
+                num_edges = num_edges + 1;
+                this.esVisitado[b] = 1;
             }
-            this.costo[a][b]=this.costo[b][a]=999999;//infinito
+            this.costo[a][b] = this.costo[b][a] = 999999;//infinito
 
 
         }
