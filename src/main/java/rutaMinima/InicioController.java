@@ -9,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -41,8 +40,6 @@ public class InicioController {
             Scene scene = new Scene(root);
             Stage newStage = new Stage();
             newStage.initStyle(StageStyle.TRANSPARENT);
-            newStage.setTitle("Calculadora de Rutas Mínimas Entre Ciudades");
-            newStage.getIcons().add(new Image(getClass().getResourceAsStream("images/icons8_world_map.png")));
             scene.setFill(Color.TRANSPARENT);
             newStage.setScene(scene);
             newStage.show();
