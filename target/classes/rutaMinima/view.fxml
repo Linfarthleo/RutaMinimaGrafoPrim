@@ -148,7 +148,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="ingresarCiudadesPanel" prefHeight="400.0" prefWidth="601.0" styleClass="root2" stylesheets="@style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <AnchorPane fx:id="ingresarCiudadesPanel" prefHeight="400.0" prefWidth="601.0" styleClass="root2" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <children>
                   <AnchorPane layoutX="56.0" layoutY="97.0" prefHeight="184.0" prefWidth="273.0" style="-fx-background-color: #1a2d4c;" styleClass="root3" stylesheets="@style.css">
                      <children>
