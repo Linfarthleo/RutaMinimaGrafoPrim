@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="root3" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rutaMinima.InicioController">
+   <children>
+      <VBox layoutX="231.0" layoutY="80.0" prefHeight="400.0" prefWidth="279.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="321.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Separator orientation="VERTICAL" prefHeight="109.0" prefWidth="11.0" visible="false" />
+            <ImageView fitHeight="180.0" fitWidth="331.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/LogoRutasMinimas.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <JFXButton fx:id="btn_ingresarInicio" focusTraversable="false" layoutX="414.0" layoutY="163.0" onMouseClicked="#onIngresarInicioClicked" prefHeight="35.0" prefWidth="144.0" style="-fx-background-color: white;" text="Ingresar" textAlignment="CENTER">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btn_salirInicio" focusTraversable="false" layoutX="414.0" layoutY="213.0" onMouseClicked="#onSalirButtonClicked" prefHeight="35.0" prefWidth="144.0" style="-fx-background-color: white;" text="Salir" textAlignment="CENTER">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="65.0" fitWidth="64.0" layoutX="564.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/logo_Escuela.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

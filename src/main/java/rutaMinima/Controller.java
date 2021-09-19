@@ -2,13 +2,24 @@ package rutaMinima;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.stage.Window;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -41,6 +52,9 @@ public class Controller implements Initializable {
     @FXML private TextField ingresarCiudadTextField;
     @FXML private TextArea rutasIngresadasTextArea;
 
+
+
+
     //boton para salir, el cual genera un mensaje de alerta para confirmar que realmente se desea salir del programa
     public void onExitButtonClicked(MouseEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -52,6 +66,9 @@ public class Controller implements Initializable {
             System.exit(0);
         }
     }
+
+
+
 //Método para navegación entre pestañas, para le módulo de seleccionar Ciudades
     public void onSeleccionarCiudadesButtonClicked(MouseEvent event) {
         //Condicional que ocultara el modulo si ya esta abierto

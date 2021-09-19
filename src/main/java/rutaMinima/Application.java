@@ -19,7 +19,7 @@ public class Application extends javafx.application.Application {
     //Metodo de inicialización de la interfaz gráfica anexado a view.fxml
     @Override
     public void start(Stage stage) throws IOException {
-        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("view.fxml"));
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("inicio.fxml"));
         //evento en el moused pressed que permite mover cuando este presioando el mouse en cualquier parte del menu
         fxmlLoader.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
