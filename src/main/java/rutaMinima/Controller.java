@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -33,26 +34,90 @@ public class Controller implements Initializable {
 
     //Inicialización e implementación de todos los objetos de cada interfaz
 
-    @FXML private ComboBox<String> cbPais;
-    @FXML private ComboBox<String> cbCiudad;
-    @FXML private Button btnInsertar;
-    @FXML private Button btnEliminar;
-    @FXML private Button btnVaciar;
-    @FXML private TextArea taCiudades;
-    @FXML private TextArea cuadroRutas;
+    @FXML
+    private ComboBox<String> cbPais;
+    @FXML
+    private ComboBox<String> cbCiudad;
+    @FXML
+    private Button btnInsertar;
+    @FXML
+    private Button btnEliminar;
+    @FXML
+    private Button btnVaciar;
+    @FXML
+    private TextArea taCiudades;
+    @FXML
+    private TextArea cuadroRutas;
 
-    @FXML private AnchorPane seleccionarCiudadesPanel;
-    @FXML private AnchorPane ingresarCiudadesPanel;
-    @FXML private AnchorPane rutasOptimasPanel;
-    @FXML private AnchorPane mainPanel;
-    @FXML private ImageView arrowUno;
-    @FXML private ImageView arrowDos;
-    @FXML private ImageView arrowTres;
-    @FXML private TextField ingresarPaisTextField;
-    @FXML private TextField ingresarCiudadTextField;
-    @FXML private TextArea rutasIngresadasTextArea;
+    @FXML
+    private AnchorPane seleccionarCiudadesPanel;
+    @FXML
+    private AnchorPane ingresarCiudadesPanel;
+    @FXML
+    private AnchorPane rutasOptimasPanel;
+    @FXML
+    private AnchorPane mainPanel;
+    @FXML
+    private ImageView arrowUno;
+    @FXML
+    private ImageView arrowDos;
+    @FXML
+    private ImageView arrowTres;
+    @FXML
+    private TextField ingresarPaisTextField;
+    @FXML
+    private TextField ingresarCiudadTextField;
+    @FXML
+    private TextArea rutasIngresadasTextArea;
 
 
+    //Para regresar a la ventana de inicio
+    //atributos para arrastrar ventana
+    private double xOffset;
+    private double yOffset;
+
+    public void onInicioImageClicked(MouseEvent event) {
+        //Para regresar a la anterior ventana de inicio
+        try {
+            //Se crea una nueva ventana cuando se de lugar al evento, en este caso al hacer click, con sus respectivos atributos
+            Object eventSource = event.getSource();
+            Node sourceAsNode = (Node) eventSource;
+            Scene oldScene = sourceAsNode.getScene();
+            Window window = oldScene.getWindow();
+            Stage stage = (Stage) window;
+            stage.hide();//oculta la ventana actual
+            //Se crea la ventana e inicializa con sus atributos
+            Parent root = FXMLLoader.load(getClass().getResource("inicio.fxml"));
+            //Características importantes de la intefaz padre, la cual contiene a las demas interfaces
+            Scene scene = new Scene(root);
+            Stage newStage = new Stage();
+            newStage.initStyle(StageStyle.TRANSPARENT);
+            newStage.setTitle("Calculadora de Rutas Mínimas Entre Ciudades");
+            newStage.getIcons().add(new Image(getClass().getResourceAsStream("images/icons8_world_map.png")));
+            scene.setFill(Color.TRANSPARENT);
+            newStage.setScene(scene);
+            newStage.show();
+            //inicializar evento en el moused pressed que permite mover cuando este presionado el mouse en cualquier parte del menu
+            root.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    xOffset = event.getSceneX();
+                    yOffset = event.getSceneY();
+                }
+            });
+            //evento que permite arrastrar por la pantalla al anchor pane menu
+            root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    newStage.setX(event.getScreenX() - xOffset);
+                    newStage.setY(event.getScreenY() - yOffset);
+                }
+            });
+            //Si se produce un error que se lo imprima en la consola
+        } catch (IOException ex) {
+            System.out.println("Se ha producido el error: " + ex);
+        }
+    }
 
 
     //boton para salir, el cual genera un mensaje de alerta para confirmar que realmente se desea salir del programa
@@ -68,11 +133,10 @@ public class Controller implements Initializable {
     }
 
 
-
-//Método para navegación entre pestañas, para le módulo de seleccionar Ciudades
+    //Método para navegación entre pestañas, para le módulo de seleccionar Ciudades
     public void onSeleccionarCiudadesButtonClicked(MouseEvent event) {
         //Condicional que ocultara el modulo si ya esta abierto
-        if (mainPanel.isVisible()&&seleccionarCiudadesPanel.isVisible()) {
+        if (mainPanel.isVisible() && seleccionarCiudadesPanel.isVisible()) {
             mainPanel.setVisible(false);
             arrowUno.setVisible(false);
             return;
@@ -86,10 +150,11 @@ public class Controller implements Initializable {
         rutasOptimasPanel.setVisible(false);
         arrowTres.setVisible(false);
     }
+
     //Método para navegación entre pestañas, para le módulo de ingresar Ciudades
     public void onIngresarCiudadesButtonClicked(MouseEvent event) {
         //Condicional que ocultara el modulo si ya esta abierto
-        if (mainPanel.isVisible()&&ingresarCiudadesPanel.isVisible()) {
+        if (mainPanel.isVisible() && ingresarCiudadesPanel.isVisible()) {
             mainPanel.setVisible(false);
             arrowDos.setVisible(false);
             return;
@@ -107,7 +172,7 @@ public class Controller implements Initializable {
 
     public void onRutasOptimasButtonClicked(MouseEvent event) {
         //Condicional que ocultara el modulo si ya esta abierto
-        if (mainPanel.isVisible()&&rutasOptimasPanel.isVisible()) {
+        if (mainPanel.isVisible() && rutasOptimasPanel.isVisible()) {
             mainPanel.setVisible(false);
             arrowTres.setVisible(false);
             return;
@@ -126,18 +191,18 @@ public class Controller implements Initializable {
 //Parte de Selecionar Ciudades
 
     //metodo que se ejecuta cuando se preciona el combobox
-    public void onActionCBPais(ActionEvent event){
+    public void onActionCBPais(ActionEvent event) {
         cbCiudad.setDisable(false);//habilita el combo box de ciudad
         cbCiudad.setDisable(false);
-        for (int i=0;i< listaPaises.getSize();i++){//busca las ciudades del pais correspondiente
-            if(cbPais.getValue().equals(listaPaises.getCountry(i))){
+        for (int i = 0; i < listaPaises.getSize(); i++) {//busca las ciudades del pais correspondiente
+            if (cbPais.getValue().equals(listaPaises.getCountry(i))) {
                 cbCiudad.setItems(listaPaises.getCiudades(i));//llena el combo box de paises
             }
         }
     }
 
     //cuando se usa el combo box de ciudad
-    public void onActionCBCiudad(ActionEvent event){
+    public void onActionCBCiudad(ActionEvent event) {
         //se habilita el boton de selecionar una vez selecionada una ciudad
         btnInsertar.setDisable(false);
     }
@@ -152,15 +217,15 @@ public class Controller implements Initializable {
     }*/
 
     //boton selecionar
-    public void onBtnInsertarClicked(MouseEvent event){
+    public void onBtnInsertarClicked(MouseEvent event) {
         btnEliminar.setDisable(false);//una ves que se inserta una ciudad se habilita el boton eliminar
         String str = cbCiudad.getValue();//obtiene la ciudad seleccionada
         //System.out.println(str);
-        if(str==null){//si no se ha selecionado una ciudad imprime un mensaje de error
+        if (str == null) {//si no se ha selecionado una ciudad imprime un mensaje de error
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Selecione una Ciudad");
             alert.showAndWait();
-        }else {
+        } else {
             if (comprobarExistencia(str)) {//comprueba si hay valores repetidos
                 selecionadosP.add(cbPais.getValue());//añade los paises seleccionados a una lista
                 seleccionados.add(str);//añade las ciudades selecionadas a una lista
@@ -182,12 +247,12 @@ public class Controller implements Initializable {
     }
 
     //metodo para comprobar la existencia dentro de la lista
-    public boolean comprobarExistencia(String str){
+    public boolean comprobarExistencia(String str) {
 
-        for (String x: seleccionados){
-                if(x.equals(str)){
-                    //recorre la lista de ciudades selecionadas
-                    //retorna false si se encuentra
+        for (String x : seleccionados) {
+            if (x.equals(str)) {
+                //recorre la lista de ciudades selecionadas
+                //retorna false si se encuentra
                 return false;
             }
         }
@@ -195,9 +260,9 @@ public class Controller implements Initializable {
     }
 
     //boton para eliminar una d la ciuades
-    public void onBtnEliminarClicked(MouseEvent event){
+    public void onBtnEliminarClicked(MouseEvent event) {
         String str = cbCiudad.getValue();//obtinene el string de la ciudad a eliminar
-        if(!comprobarExistencia(str)){//comprueba que exista
+        if (!comprobarExistencia(str)) {//comprueba que exista
             selecionadosP.remove(seleccionados.indexOf(str));//remueve la posicion del pais selecionado
             seleccionados.remove(str);//remueve la ciudad selecionado
             String ac = "";
@@ -208,7 +273,7 @@ public class Controller implements Initializable {
             //actualiza el text area
             taCiudades.setText(ac);
 
-        }else{//si no esta la ciudad dentro de la lista imprime el error
+        } else {//si no esta la ciudad dentro de la lista imprime el error
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("La ciudad no existe dentro de la Lista");
             alert.showAndWait();
@@ -216,17 +281,17 @@ public class Controller implements Initializable {
     }
 
     //Parte de insertar ciudades
-    public void onIngresarPaisYCiudadClicked(ActionEvent event){
+    public void onIngresarPaisYCiudadClicked(ActionEvent event) {
         //Condicional para verificar que no se ingresen datos vacios, si no emitirá una alerta para que se ingrese datos
-        if(ingresarPaisTextField.getText()==""||ingresarCiudadTextField.getText()==""){
+        if (ingresarPaisTextField.getText() == "" || ingresarCiudadTextField.getText() == "") {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Ingrese Datos");
             alert.showAndWait();
-        }else {
+        } else {
             //Si no se agrega lo que se haya escrito en Pais y ciudad en un arreglo con la ayuda del metodo ingresarPaisYCiudad
             listaPaises.ingresarPaisYCiudad(ingresarPaisTextField.getText(), ingresarCiudadTextField.getText());
-           //Imprime en un TextArea el pais y ciudad que se agrego al arreglo y por ende al combobox de seleccion
-            rutasIngresadasTextArea.appendText("País: " +ingresarPaisTextField.getText()+" --> Ciudad: "+ ingresarCiudadTextField.getText()+"\n");
+            //Imprime en un TextArea el pais y ciudad que se agrego al arreglo y por ende al combobox de seleccion
+            rutasIngresadasTextArea.appendText("País: " + ingresarPaisTextField.getText() + " --> Ciudad: " + ingresarCiudadTextField.getText() + "\n");
         }
         //Se debe actualizar los combo box de módulo seleccionar paises para que la eleccion se haga con normalidad y los datos recien ingresados
         cbPais.setItems(listaPaises.getListaDePaises());
@@ -238,10 +303,10 @@ public class Controller implements Initializable {
     //Parte de conectar ciudades
 
     //boton conectar ciudades
-    public void onConectarCiudadesButtonClicked(ActionEvent event){
+    public void onConectarCiudadesButtonClicked(ActionEvent event) {
         //si se ha seleccinado las ciudades inmediatamente despues de presionar el boton, tambien cambiara de interfaz
         //al modulo de rutas optimas(lo hace visible y los demas se los oculta), que es ahí donde se mostraran los resultados
-        if(!seleccionados.isEmpty()){
+        if (!seleccionados.isEmpty()) {
             mainPanel.setVisible(true);
             seleccionarCiudadesPanel.setVisible(false);
             arrowUno.setVisible(false);
@@ -251,52 +316,51 @@ public class Controller implements Initializable {
             arrowTres.setVisible(true);
 
             matrizCostos();
-        }else{//si no se ha selecionado una ciudad despliega un mensaje de error
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("No ha selecionado ninguna ciudad");
-                alert.showAndWait();
+        } else {//si no se ha selecionado una ciudad despliega un mensaje de error
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("No ha selecionado ninguna ciudad");
+            alert.showAndWait();
 
         }
     }
 
     //metodo para llenar la matriz de costos
-    public void matrizCostos(){
+    public void matrizCostos() {
 
-        AlgPrim p = new AlgPrim (seleccionados.size());//Objeto AlgPrim
+        AlgPrim p = new AlgPrim(seleccionados.size());//Objeto AlgPrim
         //Distancias distanciasGeneradas =new Distancias();//Objeto distancias
-        int nodes,i,j;
+        int nodes, i, j;
 
         //asigna el nuemro de nodos que es el numero de ciudades selecionadas
-        nodes= seleccionados.size();
+        nodes = seleccionados.size();
 
         //Ingresar los Pesos o Costos a la Matriz de Adyacencia etiquetada
-        for(i=1;i<=nodes;i++)
-            for(j=1;j<=nodes;j++)
-            {
+        for (i = 1; i <= nodes; i++)
+            for (j = 1; j <= nodes; j++) {
                 //genera o  obtiene la distancia
-                p.costo[i][j]=distanciasGeneradas.obtenerDistancia(listaPaises, selecionadosP.get(i-1),
-                        seleccionados.get(i-1),selecionadosP.get(j-1), seleccionados.get(j-1));
+                p.costo[i][j] = distanciasGeneradas.obtenerDistancia(listaPaises, selecionadosP.get(i - 1),
+                        seleccionados.get(i - 1), selecionadosP.get(j - 1), seleccionados.get(j - 1));
                 System.out.println(p.costo[i][j]);
 
-                if(p.costo[i][j]==0)//si la distancia es 0 asigna infinito
-                    p.costo[i][j]=999999;
+                if (p.costo[i][j] == 0)//si la distancia es 0 asigna infinito
+                    p.costo[i][j] = 999999;
             }
 
-        p.esVisitado[1]=1;
-            //coloca el el text area la forma en la que se deben conectar las
+        p.esVisitado[1] = 1;
+        //coloca el el text area la forma en la que se deben conectar las
         //ciudades para conseguir el arbol de expansion minima
-        cuadroRutas.setText(p.calc(nodes,selecionadosP, seleccionados));
+        cuadroRutas.setText(p.calc(nodes, selecionadosP, seleccionados));
 
     }
 
     //inicializar arreglos y listas
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-            listaPaises=new Paises();
-            cbPais.setItems(listaPaises.getListaDePaises());
-            seleccionados =new ArrayList<>();
-            selecionadosP=new ArrayList<>();
-            distanciasGeneradas =new Distancias();
+        listaPaises = new Paises();
+        cbPais.setItems(listaPaises.getListaDePaises());
+        seleccionados = new ArrayList<>();
+        selecionadosP = new ArrayList<>();
+        distanciasGeneradas = new Distancias();
 
     }
 

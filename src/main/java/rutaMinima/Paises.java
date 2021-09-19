@@ -176,10 +176,9 @@ public class Paises {
     }
 
 
-
     //metodo para ingresar un nuevo pais y ciudad o una ciudad a un pais exsitente
-    public void ingresarPaisYCiudad(String pais, String ciudad){
-        if(!(listaDePaises.contains(pais))){//si el pais no existe se crea uno nuevo añadiendolo a la lista de paises
+    public void ingresarPaisYCiudad(String pais, String ciudad) {
+        if (!(listaDePaises.contains(pais))) {//si el pais no existe se crea uno nuevo añadiendolo a la lista de paises
             listaDePaises.add(pais);//se añade el pais que se paso como parametro
             //se añade una nueva lista de ciudades relacionada con el pais creado
             ObservableList<String> ciudadesPais = FXCollections.observableArrayList();
@@ -189,7 +188,7 @@ public class Paises {
         //ya sea porque se creo o porque ya existia
 
         //se verifica que la ciudad no exista previamente para evitar duplicados
-        if(!(listasDeCiudades.get(listaDePaises.indexOf(pais)).contains(ciudad))){
+        if (!(listasDeCiudades.get(listaDePaises.indexOf(pais)).contains(ciudad))) {
             listasDeCiudades.get(listaDePaises.indexOf(pais)).add(ciudad);//se añade la ciudad a la lista de ciudades
         }
     }
@@ -207,12 +206,12 @@ public class Paises {
     }
 
     //metodo para obtener el pais dado el indice
-    public String getCountry(int index){
+    public String getCountry(int index) {
         return listaDePaises.get(index);
     }
 
     //metodo para obtener el tamaño de la lista de paises
-    public int getSize(){
+    public int getSize() {
         return listaDePaises.size();
     }
 

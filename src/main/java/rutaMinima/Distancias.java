@@ -22,7 +22,7 @@ public class Distancias {
     un objeto Paises, y Strings con el nombre de dos ciudades con su pais respectivo
      */
 
-    public int obtenerDistancia(Paises paises, String pais1, String c1, String pais2, String c2){
+    public int obtenerDistancia(Paises paises, String pais1, String c1, String pais2, String c2) {
 
         //indice de el pais y ciudad 1
         int idp1 = paises.listaDePaises.indexOf(pais1);
@@ -33,17 +33,17 @@ public class Distancias {
 
         //si son iguales retorna 0 y se termina
 
-        if(idp1==idp2 && idc1==idc2){//si se trata de la misma ciudad retorna 0
+        if (idp1 == idp2 && idc1 == idc2) {//si se trata de la misma ciudad retorna 0
             return 0;
         }
         //creacion de la distancia
-        int metros=(int)(Math.random()*(10000-200+1)+200);//
-        int [] distancia ={idp1,idc1,idp2,idc2,metros};//creacion de arreglo con los datos
+        int metros = (int) (Math.random() * (10000 - 200 + 1) + 200);//
+        int[] distancia = {idp1, idc1, idp2, idc2, metros};//creacion de arreglo con los datos
 
-        for (int[] x:listaDeDistancias) {//buscar si ya existe la distancia
+        for (int[] x : listaDeDistancias) {//buscar si ya existe la distancia
             //busca si la distancia a sido generada antes
-            if((x[0]==idp1 && x[1]==idc1 && x[2]==idp2 && x[3]==idc2 )||(x[0]==idp2 && x[1]==idc2 && x[2]==idp1 && x[3]==idc1 ) ){
-               return x[4];//si ya fue generada antes retorna el valor previamente generado
+            if ((x[0] == idp1 && x[1] == idc1 && x[2] == idp2 && x[3] == idc2) || (x[0] == idp2 && x[1] == idc2 && x[2] == idp1 && x[3] == idc1)) {
+                return x[4];//si ya fue generada antes retorna el valor previamente generado
             }
         }
 
