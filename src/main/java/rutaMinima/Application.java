@@ -13,12 +13,14 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class Application extends javafx.application.Application {
+    //atributos para arrastrar ventana
     private double xOffset;
     private double yOffset;
+    //Metodo de inicialización de la interfaz gráfica anexado a view.fxml
     @Override
     public void start(Stage stage) throws IOException {
         Parent fxmlLoader = FXMLLoader.load(getClass().getResource("view.fxml"));
-
+        //evento en el moused pressed que permite mover cuando este presioando el mouse en cualquier parte del menu
         fxmlLoader.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -35,7 +37,7 @@ public class Application extends javafx.application.Application {
             }
         });
 
-
+        //Características importantes de la intefaz padre, la cual contiene a las demas interfaces
         Scene scene = new Scene(fxmlLoader);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setTitle("Rutas Mínimas - Grafos");
