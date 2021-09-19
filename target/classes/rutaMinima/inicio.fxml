@@ -20,11 +20,6 @@
             </ImageView>
          </children>
       </VBox>
-      <ImageView fitHeight="58.0" fitWidth="51.0" layoutX="577.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/logo_Escuela.png" />
-         </image>
-      </ImageView>
       <JFXButton fx:id="btn_ingresarInicio" focusTraversable="false" layoutX="414.0" layoutY="163.0" onMouseClicked="#onIngresarInicioClicked" prefHeight="35.0" prefWidth="144.0" style="-fx-background-color: white;" text="Ingresar" textAlignment="CENTER">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
@@ -35,5 +30,10 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
          </font>
       </JFXButton>
+      <ImageView fitHeight="65.0" fitWidth="64.0" layoutX="564.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/logo_Escuela.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
