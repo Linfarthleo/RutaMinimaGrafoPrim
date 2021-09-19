@@ -81,3 +81,29 @@ Launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe
 Launcher args:	-jar "C:\Users\Leonardo\Documents\GitHub\RutaMinima\CalculadoraDeRutasMínimas.exe"
 Args length:	82/32768 chars
 Exit code:	0
+
+
+Version:	3.14
+CmdLine:	C:\Users\Leonardo\Documents\GitHub\RutaMinima\CalculadoraDeRutasMínimas.exe --l4j-debug
+WOW64:		yes
+Working dir:	C:\Users\Leonardo\Documents\GitHub\RutaMinima\.
+Java min ver:	1.016.000_001
+Java max ver:	
+64-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+32-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+64-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Ignore:		1.008.000
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_301
+Ignore:		1.008.000_301
+32-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+64-bit search:	SOFTWARE\JavaSoft\JDK...
+Check:		SOFTWARE\JavaSoft\JDK\17
+Check launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe (OK)
+Match:		1.017.000
+64-bit search:	SOFTWARE\JavaSoft\JRE...
+Runtime used:	1.017.000 (64-bit)
+Launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe
+Launcher args:	-jar "C:\Users\Leonardo\Documents\GitHub\RutaMinima\CalculadoraDeRutasMínimas.exe"
+Args length:	82/32768 chars
+Exit code:	0
