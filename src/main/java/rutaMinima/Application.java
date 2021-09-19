@@ -17,6 +17,7 @@ public class Application extends javafx.application.Application {
     //atributos para arrastrar ventana
     private double xOffset;
     private double yOffset;
+
     //Metodo de inicialización de la interfaz gráfica anexado a view.fxml
     @Override
     public void start(Stage stage) throws IOException {
@@ -33,8 +34,8 @@ public class Application extends javafx.application.Application {
         fxmlLoader.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                stage.setX(event.getScreenX()-xOffset);
-                stage.setY(event.getScreenY()- yOffset);
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
             }
         });
 
@@ -49,6 +50,6 @@ public class Application extends javafx.application.Application {
     }
 
     public static void main(String[] args) {
-          launch();
+        launch();
     }
 }
