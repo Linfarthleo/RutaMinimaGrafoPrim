@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.0" prefWidth="724.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rutaMinima.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="675.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rutaMinima.Controller">
    <children>
       <AnchorPane prefHeight="57.0" prefWidth="525.0" style="-fx-background-color: #bdecb6;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -42,7 +42,7 @@
                         </Label>
                      </children>
                   </VBox>
-                  <Separator prefHeight="71.0" prefWidth="106.0" visible="false" />
+                  <Separator prefHeight="71.0" prefWidth="69.0" visible="false" />
                   <JFXButton fx:id="ingresarButton" focusTraversable="false" onMouseClicked="#onIngresarCiudadesButtonClicked" prefHeight="71.0" prefWidth="144.0" text="Ingresar Ciudades" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="51.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
@@ -79,7 +79,7 @@
                         <Font name="Verdana Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <Separator prefHeight="71.0" prefWidth="94.0" visible="false" />
+                  <Separator prefHeight="106.0" prefWidth="37.0" visible="false" />
                   <JFXButton focusTraversable="false" onMouseClicked="#onExitButtonClicked" prefHeight="71.0" prefWidth="45.0" text=" ">
                      <graphic>
                         <ImageView fitHeight="57.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
@@ -97,14 +97,14 @@
          </children></AnchorPane>
       <AnchorPane fx:id="mainPanel" layoutX="17.0" layoutY="115.0" prefHeight="467.0" prefWidth="675.0" styleClass="root3" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label layoutX="134.0" layoutY="158.0" prefHeight="98.0" prefWidth="457.0" text="Bienvenid@!" textFill="WHITE">
+            <Label layoutX="127.0" layoutY="177.0" prefHeight="84.0" prefWidth="422.0" text="Bienvenid@!" textFill="WHITE">
                <font>
                   <Font name="Rockwell" size="70.0" />
                </font>
             </Label>
             <AnchorPane fx:id="seleccionarCiudadesPanel" prefHeight="400.0" prefWidth="601.0" styleClass="root" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <children>
-                  <AnchorPane layoutX="58.0" layoutY="65.0" prefHeight="287.0" prefWidth="290.0" style="-fx-background-color: #1a2d4c;" styleClass="root3" stylesheets="@style.css">
+                  <AnchorPane layoutX="38.0" layoutY="66.0" prefHeight="287.0" prefWidth="290.0" style="-fx-background-color: #1a2d4c;" styleClass="root3" stylesheets="@style.css">
                      <children>
                         <Label layoutX="44.0" layoutY="48.0" text="Seleccionar Ciudades" textFill="WHITE">
                            <font>
@@ -135,13 +135,13 @@
                         <JFXComboBox fx:id="cbCiudad" focusColor="WHITE" layoutX="117.0" layoutY="145.0" onAction="#onActionCBCiudad" prefHeight="25.0" prefWidth="109.0" promptText="Ciudad" style="-fx-background-color: white;" unFocusColor="BLACK" />
                      </children>
                   </AnchorPane>
-                  <TextArea fx:id="taCiudades" editable="false" layoutX="394.0" layoutY="101.0" prefHeight="200.0" prefWidth="252.0" promptText="Lista Vacia" />
-                  <Button fx:id="btn_conectarCiudades" layoutX="437.0" layoutY="313.0" mnemonicParsing="false" onAction="#onConectarCiudadesButtonClicked" prefHeight="39.0" prefWidth="156.0" text="Conectar Ciudades">
+                  <TextArea fx:id="taCiudades" editable="false" layoutX="374.0" layoutY="102.0" prefHeight="200.0" prefWidth="252.0" promptText="Lista Vacia" />
+                  <Button fx:id="btn_conectarCiudades" layoutX="417.0" layoutY="314.0" mnemonicParsing="false" onAction="#onConectarCiudadesButtonClicked" prefHeight="39.0" prefWidth="156.0" text="Conectar Ciudades">
                      <font>
                         <Font name="Verdana Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Label layoutX="394.0" layoutY="75.0" prefHeight="18.0" prefWidth="252.0" styleClass="root3" stylesheets="@style.css" text="        Ciudades Seleccionadas" textAlignment="RIGHT" textFill="WHITE">
+                  <Label layoutX="374.0" layoutY="76.0" prefHeight="18.0" prefWidth="252.0" styleClass="root3" stylesheets="@style.css" text="        Ciudades Seleccionadas" textAlignment="RIGHT" textFill="WHITE">
                      <font>
                         <Font name="Verdana Bold" size="14.0" />
                      </font>
@@ -150,7 +150,7 @@
             </AnchorPane>
             <AnchorPane fx:id="ingresarCiudadesPanel" prefHeight="400.0" prefWidth="601.0" styleClass="root2" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <children>
-                  <AnchorPane layoutX="68.0" layoutY="131.0" prefHeight="184.0" prefWidth="273.0" style="-fx-background-color: #1a2d4c;" styleClass="root3" stylesheets="@style.css">
+                  <AnchorPane layoutX="56.0" layoutY="97.0" prefHeight="184.0" prefWidth="273.0" style="-fx-background-color: #1a2d4c;" styleClass="root3" stylesheets="@style.css">
                      <children>
                         <Label layoutX="37.0" layoutY="29.0" text="Ingresar Ciudades" textFill="WHITE">
                            <font>
@@ -176,8 +176,8 @@
                         </JFXButton>
                      </children>
                   </AnchorPane>
-                  <TextArea fx:id="rutasIngresadasTextArea" editable="false" focusTraversable="false" layoutX="384.0" layoutY="131.0" prefHeight="184.0" prefWidth="252.0" promptText="Lista Vacia" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="384.0" layoutY="98.0" prefHeight="18.0" prefWidth="252.0" styleClass="root3" stylesheets="@style.css" text="Ciudades Ingresadas" textAlignment="RIGHT" textFill="WHITE">
+                  <TextArea fx:id="rutasIngresadasTextArea" editable="false" focusTraversable="false" layoutX="372.0" layoutY="97.0" prefHeight="184.0" prefWidth="252.0" promptText="Lista Vacia" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="372.0" layoutY="64.0" prefHeight="18.0" prefWidth="252.0" styleClass="root3" stylesheets="@style.css" text="Ciudades Ingresadas" textAlignment="RIGHT" textFill="WHITE">
                      <font>
                         <Font name="Verdana Bold" size="14.0" />
                      </font>
@@ -185,27 +185,27 @@
                </children></AnchorPane>
             <AnchorPane fx:id="rutasOptimasPanel" prefHeight="200.0" prefWidth="200.0" styleClass="root4" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="306.0" layoutY="92.0" prefHeight="18.0" prefWidth="94.0" styleClass="root3" text="Rutas" textAlignment="RIGHT" textFill="WHITE">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="281.0" layoutY="92.0" prefHeight="18.0" prefWidth="94.0" styleClass="root3" text="Rutas" textAlignment="RIGHT" textFill="WHITE">
                      <font>
                         <Font name="Verdana Bold" size="14.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="cuadroRutas" editable="false" layoutX="116.0" layoutY="141.0" prefHeight="178.0" prefWidth="473.0" promptText="Aun no ha seleccionado ciudades" />
+                  <TextArea fx:id="cuadroRutas" editable="false" layoutX="91.0" layoutY="141.0" prefHeight="178.0" prefWidth="473.0" promptText="Aun no ha seleccionado ciudades" />
                </children>
             </AnchorPane>
          </children>
       </AnchorPane>
-      <ImageView fx:id="arrowTres" fitHeight="51.0" fitWidth="54.0" layoutX="438.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="arrowTres" fitHeight="51.0" fitWidth="54.0" layoutX="451.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@images/collapse_arrow.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowDos" fitHeight="51.0" fitWidth="54.0" layoutX="156.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="arrowDos" fitHeight="51.0" fitWidth="54.0" layoutX="181.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@images/collapse_arrow.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowUno" fitHeight="51.0" fitWidth="54.0" layoutX="287.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="arrowUno" fitHeight="51.0" fitWidth="54.0" layoutX="306.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@images/collapse_arrow.png" />
          </image>
