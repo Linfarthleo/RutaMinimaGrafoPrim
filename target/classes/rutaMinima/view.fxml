@@ -99,7 +99,7 @@
          <children>
             <Label layoutX="127.0" layoutY="177.0" prefHeight="84.0" prefWidth="422.0" text="Bienvenid@!" textFill="WHITE">
                <font>
-                  <Font name="Rockwell" size="70.0" />
+                  <Font name="Rockwell" size="66.0" />
                </font>
             </Label>
             <AnchorPane fx:id="seleccionarCiudadesPanel" prefHeight="400.0" prefWidth="601.0" styleClass="root" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
