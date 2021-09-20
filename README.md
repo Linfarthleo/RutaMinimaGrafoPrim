@@ -1,7 +1,7 @@
 # CalculadoraRutaMínimaEntreCiudades
 # README
 
-## CONTENTS OF THIS FILE
+## CONTENIDOS DE ESTE DOCUMENTO
    
 * Introducción
 * Requerimientos
@@ -29,9 +29,15 @@ https://epnecuador-my.sharepoint.com/:f:/g/personal/galo_asitimbaya_epn_edu_ec/E
 
 Este proyecto requiere lo siguiente:
 
+Para Windows:
+
 * Windows 10 (https://www.microsoft.com/en-us/software-download/windows10)
 * JDK 16.0.2 (https://www.oracle.com/java/technologies/downloads/)
 
+Para MacOS:
+
+* MacOS BigSur
+* * JDK 16.0.2 para MacOS (https://www.oracle.com/java/technologies/downloads/)
 
 ## INSTALACIÓN
  
@@ -39,12 +45,23 @@ Este proyecto requiere lo siguiente:
 
 
 ## CONFIGURACIÓN
+
+Para Windows:
  
 * Configurar Smart Screen de Microsoft Defender para ejecutar la aplicación siguiendo los siguientes pasos:
 
 - Dar clic en el botón Más información.
 
 - Dar clic en el botón Ejecutar de todas formas.
+
+Para MacOS:
+- Al intentar abrir el .jar aparecerá una advertencia, luego de debe dar clic en el botón ok.
+- Abrir preferencias del sistema
+- Seleccionar Seguridad y Privacidad
+- Seleccionar General
+- Seleccionar Abrir de todos modos
+- Finalmente aparecerá una nueva advertencia, seleccionar abrir.
+
 
 
 ## SOLUCIÓN DE PROBLEMAS
@@ -74,7 +91,7 @@ Este proyecto requiere lo siguiente:
 
 Q: ¿Se puede desarrollar en sistemas operativos distintos a Windows?
 
-A: Si, es posible desarrollar el proyecto en MacOs, de hecho, existe una rama en el repositorio de GitHub, la cual contiene las librerías que necesita el sistema operativo MacOs. 
+A: Si, incluso es posible desarrollar el proyecto en MacOs, de hecho, existe una rama en el repositorio de GitHub, la cual contiene las librerías que necesita el sistema operativo MacOs. 
 
 
 ## MANTENEDORES
