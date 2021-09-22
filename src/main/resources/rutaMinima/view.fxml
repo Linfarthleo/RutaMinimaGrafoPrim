@@ -211,17 +211,22 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <ImageView fx:id="arrowTres" fitHeight="51.0" fitWidth="54.0" layoutX="451.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="arrowTres" fitHeight="51.0" fitWidth="54.0" layoutX="525.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@images/collapse_arrow.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowDos" fitHeight="51.0" fitWidth="54.0" layoutX="181.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="arrowDos" fitHeight="51.0" fitWidth="54.0" layoutX="140.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@images/collapse_arrow.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowUno" fitHeight="51.0" fitWidth="54.0" layoutX="306.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="arrowUno" fitHeight="51.0" fitWidth="54.0" layoutX="270.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@images/collapse_arrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arrowUno1" fitHeight="51.0" fitWidth="54.0" layoutX="390.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@images/collapse_arrow.png" />
          </image>

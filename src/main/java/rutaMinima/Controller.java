@@ -62,6 +62,8 @@ public class Controller implements Initializable {
     @FXML
     private ImageView arrowUno;
     @FXML
+    private ImageView arrowUno1;
+    @FXML
     private ImageView arrowDos;
     @FXML
     private ImageView arrowTres;
@@ -152,24 +154,26 @@ public class Controller implements Initializable {
         rutasOptimasPanel.setVisible(false);
         arrowTres.setVisible(false);
         listaPanel.setVisible(false);
+        arrowUno1.setVisible(false);
     }
 
 
     public void onListaButtonClicked(MouseEvent event) {
         if (mainPanel.isVisible() && listaPanel.isVisible()) {
             mainPanel.setVisible(false);
-            arrowUno.setVisible(false);
+            arrowUno1.setVisible(false);
             return;
         }
         //Hace visible al pane de seleccionar ciudades
         mainPanel.setVisible(true);
         seleccionarCiudadesPanel.setVisible(false);
-        arrowUno.setVisible(true);
+        arrowUno.setVisible(false);
         ingresarCiudadesPanel.setVisible(false);
         arrowDos.setVisible(false);
         rutasOptimasPanel.setVisible(false);
         arrowTres.setVisible(false);
         listaPanel.setVisible(true);
+        arrowUno1.setVisible(true);
     }
     //Método para navegación entre pestañas, para le módulo de ingresar Ciudades
     public void onIngresarCiudadesButtonClicked(MouseEvent event) {
@@ -188,6 +192,7 @@ public class Controller implements Initializable {
         rutasOptimasPanel.setVisible(false);
         arrowTres.setVisible(false);
         listaPanel.setVisible(false);
+        arrowUno1.setVisible(false);
     }
     //Método para navegación entre pestañas, para le módulo de mostrar rutas optimas
 
@@ -207,6 +212,7 @@ public class Controller implements Initializable {
         rutasOptimasPanel.setVisible(true);
         arrowTres.setVisible(true);
         listaPanel.setVisible(false);
+        arrowUno1.setVisible(false);
     }
 
 
@@ -335,6 +341,7 @@ public class Controller implements Initializable {
             ingresarCiudadesPanel.setVisible(false);
             arrowDos.setVisible(false);
             listaPanel.setVisible(false);
+            arrowUno1.setVisible(false);
             rutasOptimasPanel.setVisible(true);
             arrowTres.setVisible(true);
 
